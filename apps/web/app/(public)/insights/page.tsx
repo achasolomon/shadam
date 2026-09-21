@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Insights',
-  description: 'Articles, stories, and resources on mental health from SHEDAM.',
+  description: 'Articles, stories, and resources on mental health.',
 };
 
 export default function InsightsPage() {

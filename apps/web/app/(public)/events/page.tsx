@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Events',
-  description: 'Upcoming and past events from SHEDAM Mental Health Initiative.',
+  description: 'Upcoming and past events from SHEDAM.',
 };
 
 export default function EventsPage() {

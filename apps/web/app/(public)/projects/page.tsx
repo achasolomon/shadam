@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Projects',
-  description: 'Explore our mental health projects and programmes creating real change.',
+  description: 'Explore our mental health projects.',
 };
 
 export default function ProjectsPage() {
@@ -11,7 +11,7 @@ export default function ProjectsPage() {
       <div className="container mx-auto px-4">
         <h1 className="font-heading text-4xl font-bold text-dark">Our Projects</h1>
         <p className="mt-4 text-lg text-text-secondary">
-          Through targeted programmes and community engagement, we provide support, education and hope for a healthier tomorrow.
+          Through targeted programmes, we provide support and hope for a healthier tomorrow.
         </p>
       </div>
     </div>

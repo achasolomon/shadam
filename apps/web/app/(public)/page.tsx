@@ -1,13 +1,13 @@
-import { Hero } from '@/components/sections/hero';
-import { EventCountdown } from '@/components/sections/event-countdown';
-import { AboutPreview } from '@/components/sections/about-preview';
-import { Services } from '@/components/sections/services';
-import { Projects } from '@/components/sections/projects';
-import { Impact } from '@/components/sections/impact';
-import { GalleryPreview } from '@/components/sections/gallery-preview';
-import { GetHelpCTA } from '@/components/sections/get-help-cta';
-import { LatestInsights } from '@/components/sections/latest-insights';
-import { Newsletter } from '@/components/sections/newsletter';
+import { Hero } from '@/components/public/sections/hero';
+import { EventCountdown } from '@/components/public/sections/event-countdown';
+import { AboutPreview } from '@/components/public/sections/about-preview';
+import { Services } from '@/components/public/sections/services';
+import { Projects } from '@/components/public/sections/projects';
+import { Impact } from '@/components/public/sections/impact';
+import { GalleryPreview } from '@/components/public/sections/gallery-preview';
+import { GetHelpCTA } from '@/components/public/sections/get-help-cta';
+import { LatestInsights } from '@/components/public/sections/latest-insights';
+import { Newsletter } from '@/components/public/sections/newsletter';
 
 export default function HomePage() {
   return (

@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description:
-    'Learn about SHEDAM Mental Health Initiative - our story, mission, vision, and values.',
+  description: 'Learn about SHEDAM Mental Health Initiative.',
 };
 
 export default function AboutPage() {

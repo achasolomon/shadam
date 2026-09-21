@@ -1,6 +1,6 @@
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { SupportWidget } from '@/components/support-widget';
+import { Header } from '@/components/public/header';
+import { Footer } from '@/components/public/footer';
+import { SupportWidget } from '@/components/public/support-widget';
 
 export default function PublicLayout({
   children,

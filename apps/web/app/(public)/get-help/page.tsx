@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Get Help',
-  description: 'Find support, professional help, and mental health resources.',
+  description: 'Find support and professional help.',
 };
 
 export default function GetHelpPage() {
