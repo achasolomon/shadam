@@ -1,6 +1,3 @@
-// Design tokens are exported via globals.css
-export './globals.css';
-
 // Components
 export * from './components';
 
