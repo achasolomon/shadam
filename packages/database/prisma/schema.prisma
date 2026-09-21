@@ -1,0 +1,479 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  SUPER_ADMIN
+  CONTENT_MANAGER
+  MEDIA_MANAGER
+  EDITOR
+  EVENTS_MANAGER
+  SUPPORT_OFFICER
+  READ_ONLY
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+}
+
+enum ContentStatus {
+  DRAFT
+  IN_REVIEW
+  APPROVED
+  SCHEDULED
+  PUBLISHED
+  ARCHIVED
+  REJECTED
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  DOCUMENT
+  AUDIO
+}
+
+enum EnquiryType {
+  GENERAL
+  SUPPORT
+  PARTNERSHIP
+  VOLUNTEER
+  MEDIA
+  OTHER
+}
+
+enum EnquiryStatus {
+  NEW
+  IN_PROGRESS
+  RESOLVED
+  ESCALATED
+  CLOSED
+}
+
+enum ConsentStatus {
+  PENDING
+  VERIFIED
+  DENIED
+}
+
+enum SubscriberStatus {
+  ACTIVE
+  UNSUBSCRIBED
+  BOUNCED
+}
+
+enum SettingType {
+  TEXT
+  TEXTAREA
+  IMAGE
+  JSON
+  BOOLEAN
+  NUMBER
+}
+
+enum NavLocation {
+  HEADER
+  FOOTER
+  BOTH
+}
+
+model Role {
+  id          String @id @default(uuid())
+  name        String @unique
+  description String?
+  permissions Json
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  users User[]
+}
+
+model User {
+  id           String      @id @default(uuid())
+  name         String
+  email        String      @unique
+  passwordHash String      @map("password_hash")
+  roleId       String      @map("role_id")
+  role         Role        @relation(fields: [roleId], references: [id])
+  status       UserStatus  @default(ACTIVE)
+  avatarUrl    String?     @map("avatar_url")
+  lastLogin    DateTime?   @map("last_login")
+  createdAt    DateTime    @default(now()) @map("created_at")
+  updatedAt    DateTime    @updatedAt @map("updated_at")
+  deletedAt    DateTime?   @map("deleted_at")
+
+  pages           Page[]
+  projects        Project[]
+  events          Event[]
+  galleryAlbums   GalleryAlbum[]
+  articles        Article[]
+  stories         Story[]
+  resources       Resource[]
+  mediaAssets     MediaAsset[]
+  enquiries       Enquiry?     @relation("EnquiryAssignment")
+  auditLogs       AuditLog[]
+  siteSettings    SiteSetting[]
+
+  @@map("users")
+}
+
+model Page {
+  id             String        @id @default(uuid())
+  slug           String        @unique
+  title          String
+  body           Json
+  status         ContentStatus @default(DRAFT)
+  seoTitle       String?       @map("seo_title")
+  seoDescription String?       @map("seo_description")
+  seoImage       String?       @map("seo_image")
+  authorId       String        @map("author_id")
+  author         User          @relation(fields: [authorId], references: [id])
+  publishedAt    DateTime?     @map("published_at")
+  scheduledAt    DateTime?     @map("scheduled_at")
+  createdAt      DateTime      @default(now()) @map("created_at")
+  updatedAt      DateTime      @updatedAt @map("updated_at")
+  deletedAt      DateTime?     @map("deleted_at")
+
+  navigationItems NavigationItem[]
+
+  @@index([slug])
+  @@index([status])
+  @@map("pages")
+}
+
+model Project {
+  id            String        @id @default(uuid())
+  slug          String        @unique
+  title         String
+  summary       String?       @db.Text
+  body          Json
+  category      String?
+  coverMediaId  String?       @map("cover_media_id")
+  coverMedia    MediaAsset?   @relation(fields: [coverMediaId], references: [id])
+  status        ContentStatus @default(DRAFT)
+  startDate     DateTime?     @map("start_date")
+  endDate       DateTime?     @map("end_date")
+  ctaLabel      String?       @map("cta_label")
+  ctaUrl        String?       @map("cta_url")
+  authorId      String        @map("author_id")
+  author        User          @relation(fields: [authorId], references: [id])
+  publishedAt   DateTime?     @map("published_at")
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+  deletedAt     DateTime?     @map("deleted_at")
+
+  @@index([slug])
+  @@index([status])
+  @@index([category])
+  @@map("projects")
+}
+
+model Event {
+  id              String        @id @default(uuid())
+  slug            String        @unique
+  title           String
+  description     String?       @db.Text
+  body            Json?
+  startAt         DateTime      @map("start_at")
+  endAt           DateTime?     @map("end_at")
+  timezone        String        @default("Africa/Lagos")
+  venue           String?
+  venueAddress    String?       @map("venue_address")
+  coverMediaId    String?       @map("cover_media_id")
+  coverMedia      MediaAsset?   @relation(fields: [coverMediaId], references: [id])
+  registrationUrl String?       @map("registration_url")
+  isFeatured      Boolean       @default(false) @map("is_featured")
+  status          ContentStatus @default(DRAFT)
+  authorId        String        @map("author_id")
+  author          User          @relation(fields: [authorId], references: [id])
+  publishedAt     DateTime?     @map("published_at")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+  deletedAt       DateTime?     @map("deleted_at")
+
+  @@index([slug])
+  @@index([status])
+  @@index([startAt])
+  @@index([isFeatured])
+  @@map("events")
+}
+
+model GalleryAlbum {
+  id            String        @id @default(uuid())
+  slug          String        @unique
+  title         String
+  description   String?       @db.Text
+  coverMediaId  String?       @map("cover_media_id")
+  coverMedia    MediaAsset?   @relation(fields: [coverMediaId], references: [id])
+  status        ContentStatus @default(DRAFT)
+  authorId      String        @map("author_id")
+  author        User          @relation(fields: [authorId], references: [id])
+  publishedAt   DateTime?     @map("published_at")
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+  deletedAt     DateTime?     @map("deleted_at")
+
+  items GalleryItem[]
+
+  @@index([slug])
+  @@index([status])
+  @@map("gallery_albums")
+}
+
+model GalleryItem {
+  id        String   @id @default(uuid())
+  albumId   String   @map("album_id")
+  album     GalleryAlbum @relation(fields: [albumId], references: [id], onDelete: Cascade)
+  mediaId   String   @map("media_id")
+  media     MediaAsset @relation(fields: [mediaId], references: [id])
+  caption   String?  @db.VarChar(500)
+  altText   String?  @map("alt_text") @db.VarChar(255)
+  sortOrder Int      @default(0) @map("sort_order")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@id([id])
+  @@map("gallery_items")
+}
+
+model Article {
+  id              String        @id @default(uuid())
+  slug            String        @unique
+  title           String
+  excerpt         String?       @db.Text
+  body            Json
+  coverMediaId    String?       @map("cover_media_id")
+  coverMedia      MediaAsset?   @relation(fields: [coverMediaId], references: [id])
+  category        String?
+  authorId        String        @map("author_id")
+  author          User          @relation(fields: [authorId], references: [id])
+  status          ContentStatus @default(DRAFT)
+  seoTitle        String?       @map("seo_title")
+  seoDescription  String?       @map("seo_description")
+  publishedAt     DateTime?     @map("published_at")
+  scheduledAt     DateTime?     @map("scheduled_at")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+  deletedAt       DateTime?     @map("deleted_at")
+
+  tags ArticleTag[]
+
+  @@index([slug])
+  @@index([status])
+  @@index([category])
+  @@map("articles")
+}
+
+model ArticleTag {
+  id        String  @id @default(uuid())
+  articleId String  @map("article_id")
+  article   Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  tag       String
+
+  @@id([id])
+  @@unique([articleId, tag])
+  @@map("article_tags")
+}
+
+model Story {
+  id             String        @id @default(uuid())
+  title          String
+  body           String        @db.Text
+  quote          String?       @db.Text
+  personLabel    String?       @map("person_label")
+  mediaId        String?       @map("media_id")
+  media          MediaAsset?   @relation(fields: [mediaId], references: [id])
+  consentStatus  ConsentStatus @default(PENDING) @map("consent_status")
+  consentDate    DateTime?     @map("consent_date")
+  consentNotes   String?       @map("consent_notes") @db.Text
+  authorId       String        @map("author_id")
+  author         User          @relation(fields: [authorId], references: [id])
+  status         ContentStatus @default(DRAFT)
+  publishedAt    DateTime?     @map("published_at")
+  createdAt      DateTime      @default(now()) @map("created_at")
+  updatedAt      DateTime      @updatedAt @map("updated_at")
+  deletedAt      DateTime?     @map("deleted_at")
+
+  @@index([status])
+  @@index([consentStatus])
+  @@map("stories")
+}
+
+model TeamMember {
+  id          String   @id @default(uuid())
+  name        String
+  role        String
+  bio         String?  @db.Text
+  photoUrl    String?  @map("photo_url")
+  email       String?
+  phone       String?  @db.VarChar(50)
+  socialLinks Json?    @map("social_links")
+  sortOrder   Int      @default(0) @map("sort_order")
+  status      UserStatus @default(ACTIVE)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+
+  @@map("team_members")
+}
+
+model Resource {
+  id            String        @id @default(uuid())
+  title         String
+  description   String?       @db.Text
+  category      String?
+  fileUrl       String        @map("file_url")
+  fileSize      Int?          @map("file_size")
+  fileType      String?       @map("file_type")
+  version       String?
+  downloadCount Int           @default(0) @map("download_count")
+  status        ContentStatus @default(DRAFT)
+  authorId      String        @map("author_id")
+  author        User          @relation(fields: [authorId], references: [id])
+  publishedAt   DateTime?     @map("published_at")
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+  deletedAt     DateTime?     @map("deleted_at")
+
+  @@index([status])
+  @@index([category])
+  @@map("resources")
+}
+
+model MediaAsset {
+  id          String    @id @default(uuid())
+  url         String
+  originalUrl String?   @map("original_url")
+  type        MediaType
+  mimeType    String?   @map("mime_type")
+  fileName    String    @map("file_name")
+  fileSize    Int?      @map("file_size")
+  width       Int?
+  height      Int?
+  altText     String?   @map("alt_text")
+  caption     String?   @db.VarChar(500)
+  photographer String?
+  source      String?
+  folder      String?
+  tags        Json?
+  uploadedBy  String    @map("uploaded_by")
+  uploader    User      @relation(fields: [uploadedBy], references: [id])
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  deletedAt   DateTime? @map("deleted_at")
+
+  projects        Project[]
+  events          Event[]
+  galleryAlbums   GalleryAlbum[]
+  galleryItems    GalleryItem[]
+  articles        Article[]
+  stories         Story[]
+
+  @@index([type])
+  @@index([folder])
+  @@map("media_assets")
+}
+
+model Enquiry {
+  id         String        @id @default(uuid())
+  name       String
+  email      String
+  phone      String?       @db.VarChar(50)
+  type       EnquiryType   @default(GENERAL)
+  subject    String?
+  message    String        @db.Text
+  status     EnquiryStatus @default(NEW)
+  assignedTo String?       @map("assigned_to")
+  assignee   User?         @relation("EnquiryAssignment", fields: [assignedTo], references: [id])
+  notes      Json?
+  createdAt  DateTime      @default(now()) @map("created_at")
+  updatedAt  DateTime      @updatedAt @map("updated_at")
+
+  @@index([status])
+  @@index([type])
+  @@map("enquiries")
+}
+
+model Subscriber {
+  id        String           @id @default(uuid())
+  email     String           @unique
+  status    SubscriberStatus @default(ACTIVE)
+  consentAt DateTime         @map("consent_at")
+  source    String?
+  createdAt DateTime         @default(now()) @map("created_at")
+  updatedAt DateTime         @updatedAt @map("updated_at")
+
+  @@map("subscribers")
+}
+
+model SiteSetting {
+  id        String     @id @default(uuid())
+  key       String     @unique
+  value     String?    @db.Text
+  type      SettingType @default(TEXT)
+  groupName String?    @map("group_name")
+  updatedBy String?    @map("updated_by")
+  updater   User?      @relation(fields: [updatedBy], references: [id])
+  createdAt DateTime   @default(now()) @map("created_at")
+  updatedAt DateTime   @updatedAt @map("updated_at")
+
+  @@index([key])
+  @@map("site_settings")
+}
+
+model NavigationItem {
+  id         String       @id @default(uuid())
+  label      String
+  url        String?
+  pageId     String?      @map("page_id")
+  page       Page?        @relation(fields: [pageId], references: [id])
+  parentId   String?      @map("parent_id")
+  parent     NavigationItem? @relation("NavHierarchy", fields: [parentId], references: [id])
+  children   NavigationItem[] @relation("NavHierarchy")
+  sortOrder  Int          @default(0) @map("sort_order")
+  location   NavLocation  @default(HEADER)
+  isExternal Boolean      @default(false) @map("is_external")
+  status     UserStatus   @default(ACTIVE)
+  createdAt  DateTime     @default(now()) @map("created_at")
+  updatedAt  DateTime     @updatedAt @map("updated_at")
+
+  @@index([location])
+  @@map("navigation_items")
+}
+
+model HomepageSection {
+  id          String   @id @default(uuid())
+  sectionType String   @map("section_type")
+  title       String?
+  config      Json
+  sortOrder   Int      @default(0) @map("sort_order")
+  isVisible   Boolean  @default(true) @map("is_visible")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("homepage_sections")
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  actorId   String?  @map("actor_id")
+  actor     User?    @relation(fields: [actorId], references: [id])
+  action    String
+  entity    String
+  entityId  String?  @map("entity_id")
+  metadata  Json?
+  ipAddress String?  @map("ip_address")
+  userAgent String?  @map("user_agent") @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([actorId])
+  @@index([entity, entityId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}

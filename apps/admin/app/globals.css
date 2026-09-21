@@ -1,0 +1,5 @@
+@import '@smhi/ui/globals.css';
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
