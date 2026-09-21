@@ -62,19 +62,19 @@ async function main() {
 
   // Create default site settings
   const settings = [
-    { key: 'site_name', value: 'SHEDAM Mental Health Initiative', type: 'TEXT', groupName: 'general' },
-    { key: 'site_tagline', value: 'Creating Awareness. Breaking the Stigma. Connecting People to Professional Help.', type: 'TEXTAREA', groupName: 'general' },
-    { key: 'contact_email', value: 'info@shedam.org', type: 'TEXT', groupName: 'contact' },
-    { key: 'contact_phone', value: '+234 XXX XXX XXXX', type: 'TEXT', groupName: 'contact' },
-    { key: 'contact_address', value: '', type: 'TEXTAREA', groupName: 'contact' },
-    { key: 'support_whatsapp', value: '', type: 'TEXT', groupName: 'support' },
-    { key: 'support_phone', value: '', type: 'TEXT', groupName: 'support' },
-    { key: 'support_email', value: 'support@shedam.org', type: 'TEXT', groupName: 'support' },
-    { key: 'facebook_url', value: '', type: 'TEXT', groupName: 'social' },
-    { key: 'twitter_url', value: '', type: 'TEXT', groupName: 'social' },
-    { key: 'instagram_url', value: '', type: 'TEXT', groupName: 'social' },
-    { key: 'linkedin_url', value: '', type: 'TEXT', groupName: 'social' },
-    { key: 'youtube_url', value: '', type: 'TEXT', groupName: 'social' },
+    { key: 'site_name', value: 'SHEDAM Mental Health Initiative', type: 'TEXT' as const, groupName: 'general' },
+    { key: 'site_tagline', value: 'Creating Awareness. Breaking the Stigma. Connecting People to Professional Help.', type: 'TEXTAREA' as const, groupName: 'general' },
+    { key: 'contact_email', value: 'info@shedam.org', type: 'TEXT' as const, groupName: 'contact' },
+    { key: 'contact_phone', value: '+234 XXX XXX XXXX', type: 'TEXT' as const, groupName: 'contact' },
+    { key: 'contact_address', value: '', type: 'TEXTAREA' as const, groupName: 'contact' },
+    { key: 'support_whatsapp', value: '', type: 'TEXT' as const, groupName: 'support' },
+    { key: 'support_phone', value: '', type: 'TEXT' as const, groupName: 'support' },
+    { key: 'support_email', value: 'support@shedam.org', type: 'TEXT' as const, groupName: 'support' },
+    { key: 'facebook_url', value: '', type: 'TEXT' as const, groupName: 'social' },
+    { key: 'twitter_url', value: '', type: 'TEXT' as const, groupName: 'social' },
+    { key: 'instagram_url', value: '', type: 'TEXT' as const, groupName: 'social' },
+    { key: 'linkedin_url', value: '', type: 'TEXT' as const, groupName: 'social' },
+    { key: 'youtube_url', value: '', type: 'TEXT' as const, groupName: 'social' },
   ];
 
   for (const setting of settings) {

@@ -238,7 +238,6 @@ model GalleryItem {
   sortOrder Int      @default(0) @map("sort_order")
   createdAt DateTime @default(now()) @map("created_at")
 
-  @@id([id])
   @@map("gallery_items")
 }
 
@@ -276,7 +275,6 @@ model ArticleTag {
   article   Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
   tag       String
 
-  @@id([id])
   @@unique([articleId, tag])
   @@map("article_tags")
 }
@@ -389,7 +387,7 @@ model Enquiry {
   subject    String?
   message    String        @db.Text
   status     EnquiryStatus @default(NEW)
-  assignedTo String?       @map("assigned_to")
+  assignedTo String?       @unique @map("assigned_to")
   assignee   User?         @relation("EnquiryAssignment", fields: [assignedTo], references: [id])
   notes      Json?
   createdAt  DateTime      @default(now()) @map("created_at")

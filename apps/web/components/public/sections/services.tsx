@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Users, Heart, HandHeart, Shield } from 'lucide-react';
+import { ArrowRight, BookOpen, Users, Heart, HeartHandshake, Shield } from 'lucide-react';
 
 const services = [
   { number: '01', title: 'Mental Health Awareness', description: 'Campaigns and outreach to promote understanding and acceptance.', icon: BookOpen, href: '/what-we-do' },
   { number: '02', title: 'Mental Health Education', description: 'Workshops, talks and resources for individuals, schools and communities.', icon: Users, href: '/what-we-do' },
   { number: '03', title: 'Professional Referral', description: 'Connecting people to qualified mental health professionals and services.', icon: Heart, href: '/what-we-do' },
-  { number: '04', title: 'Community Support', description: 'Building safe spaces and support networks for ongoing care.', icon: HandHeart, href: '/what-we-do' },
+  { number: '04', title: 'Community Support', description: 'Building safe spaces and support networks for ongoing care.', icon: HeartHandshake, href: '/what-we-do' },
   { number: '05', title: 'Vulnerable Persons Support', description: 'Helping those in need, including the indigent and at-risk groups, access care.', icon: Shield, href: '/what-we-do' },
 ];
 
