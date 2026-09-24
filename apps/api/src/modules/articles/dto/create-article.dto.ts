@@ -1,5 +1,8 @@
-import { IsString, IsOptional, IsObject, IsArray } from 'class-validator';
+import { IsString, IsOptional, IsObject, IsArray, IsIn } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+
+const CONTENT_STATUSES = ['DRAFT', 'IN_REVIEW', 'APPROVED', 'SCHEDULED', 'PUBLISHED', 'ARCHIVED', 'REJECTED'] as const;
+type ContentStatusValue = (typeof CONTENT_STATUSES)[number];
 
 export class CreateArticleDto {
   @ApiProperty()
@@ -40,4 +43,9 @@ export class CreateArticleDto {
   @IsString()
   @IsOptional()
   seoDescription?: string;
+
+  @ApiPropertyOptional({ enum: CONTENT_STATUSES })
+  @IsIn(CONTENT_STATUSES)
+  @IsOptional()
+  status?: ContentStatusValue;
 }

@@ -4,6 +4,7 @@ import { SettingsService } from './settings.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
+import { CurrentUser } from '../../common/decorators/current-user.decorator';
 
 @ApiTags('Settings')
 @Controller()
@@ -20,7 +21,7 @@ export class SettingsController {
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin')
   @ApiBearerAuth()
-  upsert(@Param('key') key: string, @Body() body: { value: string }) {
-    return this.settingsService.upsert(key, body.value);
+  upsert(@Param('key') key: string, @Body() body: { value: string }, @CurrentUser() user: any) {
+    return this.settingsService.upsert(key, body.value, user?.sub);
   }
 }

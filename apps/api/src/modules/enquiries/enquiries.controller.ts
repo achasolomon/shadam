@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Patch, Body, Param, Query, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
 import { EnquiriesService } from './enquiries.service';
-import { CreateEnquiryDto } from './dto/create-enquiry.dto';
+import { CreateEnquiryDto, ReplyEnquiryDto } from './dto/create-enquiry.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
@@ -39,5 +39,14 @@ export class EnquiriesController {
   @ApiBearerAuth()
   update(@Param('id') id: string, @Body() body: { status?: string; assignedTo?: string }) {
     return this.enquiriesService.update(id, body);
+  }
+
+  @Post('admin/enquiries/:id/replies')
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles('Super Admin', 'Support Officer')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Send reply to enquirer via email or SMS' })
+  reply(@Param('id') id: string, @Body() dto: ReplyEnquiryDto) {
+    return this.enquiriesService.reply(id, dto);
   }
 }

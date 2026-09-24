@@ -1,19 +1,12 @@
 import type { Metadata } from 'next';
+import { ProjectsContent } from '@/components/public/projects-content';
 
 export const metadata: Metadata = {
   title: 'Projects',
-  description: 'Explore our mental health projects.',
+  description:
+    'Explore the mental health projects and programmes led by SHEDAM — creating real change in communities across Nigeria.',
 };
 
 export default function ProjectsPage() {
-  return (
-    <div className="py-16">
-      <div className="container mx-auto px-4">
-        <h1 className="font-heading text-4xl font-bold text-dark">Our Projects</h1>
-        <p className="mt-4 text-lg text-text-secondary">
-          Through targeted programmes, we provide support and hope for a healthier tomorrow.
-        </p>
-      </div>
-    </div>
-  );
+  return <ProjectsContent />;
 }

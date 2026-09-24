@@ -11,7 +11,7 @@ export class NavigationController {
   constructor(private navigationService: NavigationService) {}
 
   @Get('navigation')
-  findByLocation(@Query('location') location: string) { return this.navigationService.findByLocation(location || 'header'); }
+  findByLocation(@Query('location') location?: string) { return this.navigationService.findByLocation(location); }
 
   @Get('admin/navigation')
   @UseGuards(JwtAuthGuard, RolesGuard)

@@ -1,0 +1,1555 @@
+
+> @smhi/web@0.1.0 dev
+> next dev -p 3000
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 3.5s
+ ○ Compiling / ...
+The user aborted a request.
+
+Retrying 1/3...
+The user aborted a request.
+
+Retrying 1/3...
+ ✓ Compiled / in 11.2s (753 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on / specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ GET / 200 in 11528ms
+ ○ Compiling /what-we-do ...
+ ✓ Compiled /what-we-do in 4.2s (746 modules)
+ GET /what-we-do 200 in 4342ms
+ ✓ Compiled /what-we-do/[slug] in 311ms (758 modules)
+ GET /what-we-do/awareness 200 in 712ms
+ GET /what-we-do/education 200 in 49ms
+ GET /what-we-do/referral 200 in 41ms
+ GET /what-we-do/community 200 in 45ms
+ GET /what-we-do/vulnerable 200 in 29ms
+ GET /what-we-do/research 200 in 25ms
+ ○ Compiling /admin/dashboard/settings ...
+ ✓ Compiled /admin/dashboard/settings in 551ms (823 modules)
+ GET /admin/dashboard/settings 200 in 663ms
+ GET /what-we-do/nonexistent 404 in 104ms
+ ○ Compiling /admin/dashboard/projects ...
+ ✓ Compiled /admin/dashboard/projects in 865ms (723 modules)
+ GET /admin/dashboard/projects 200 in 1031ms
+ ○ Compiling /admin/dashboard/team ...
+ ✓ Compiled /admin/dashboard/team in 911ms (718 modules)
+ GET /admin/dashboard/team 200 in 94ms
+ ○ Compiling /admin/dashboard/enquiries ...
+ ✓ Compiled /admin/dashboard/enquiries in 1217ms (741 modules)
+ ✓ Compiled in 320ms (417 modules)
+ ○ Compiling /admin/dashboard/homepage ...
+ ✓ Compiled /admin/dashboard/homepage in 535ms (746 modules)
+ ✓ Compiled /admin/dashboard/stories in 492ms (758 modules)
+ ✓ Compiled /admin/dashboard/gallery in 449ms (766 modules)
+ ○ Compiling /admin/dashboard/media ...
+ ✓ Compiled /admin/dashboard/media in 935ms (792 modules)
+ ○ Compiling /admin/dashboard/articles ...
+ ✓ Compiled /admin/dashboard/articles in 841ms (802 modules)
+ ○ Compiling /admin/dashboard/events ...
+ ✓ Compiled /admin/dashboard/events in 881ms (806 modules)
+ ✓ Compiled /admin/dashboard/projects in 236ms (369 modules)
+ ○ Compiling /admin/dashboard ...
+ ✓ Compiled /admin/dashboard in 772ms (822 modules)
+ ○ Compiling /admin/login ...
+ ✓ Compiled /admin/login in 780ms (822 modules)
+ GET /admin/login 200 in 910ms
+ GET /admin/dashboard 200 in 68ms
+ ✓ Compiled / in 424ms (414 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on / specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ GET / 200 in 737ms
+ GET /admin/login 200 in 51ms
+ GET /admin/dashboard 200 in 67ms
+ ✓ Compiled /admin/dashboard/settings in 233ms (427 modules)
+ ○ Compiling /events/[slug] ...
+ ✓ Compiled /events/[slug] in 1526ms (887 modules)
+ ✓ Compiled in 355ms (453 modules)
+ ✓ Compiled in 233ms (453 modules)
+ ✓ Compiled in 184ms (453 modules)
+ ✓ Compiled in 214ms (453 modules)
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⚠ Fast Refresh had to perform a full reload when (app-pages-browser)/../../node_modules/.pnpm/lucide-react@0.300.0_react@18.3.1/node_modules/lucide-react/dist/esm/icons/heart.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /admin/dashboard/settings 200 in 101ms
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ GET /admin/dashboard/settings 200 in 340ms
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ○ Compiling /_not-found ...
+ GET /admin/settings/general 404 in 64ms
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ GET /admin/settings/general 404 in 53ms
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ GET /admin/settings/general 404 in 70ms
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/settings/[group]/page.tsx
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/settings/[group]/page.tsx
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/settings/[group]/page.tsx
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/settings/[group]/page.tsx
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⚠ ./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+
+./lib/admin-nav.ts
+Attempted import error: 'HandHeart' is not exported from '__barrel_optimize__?names=BarChart3,Briefcase,Calendar,Camera,FileText,FolderKanban,Globe,HandHeart,Heart,HeartHandshake,Home,Image,Info,Layout,LayoutDashboard,LifeBuoy,Lightbulb,Megaphone,MessageSquare,Newspaper,Phone,Quote,Settings,Users!=!lucide-react' (imported as 'HandHeart').
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ✓ Compiled /admin/settings/[group] in 1422ms (884 modules)
+ ✓ Compiled in 282ms (467 modules)
+ ✓ Compiled in 217ms (467 modules)
+ ✓ Compiled in 262ms (467 modules)
+ ✓ Compiled in 457ms (467 modules)
+ GET /admin/settings/general 200 in 124ms
+ ✓ Compiled /admin/settings in 240ms (893 modules)
+ GET /admin/settings 200 in 383ms
+ GET /admin/dashboard/settings 200 in 77ms
+ ✓ Compiled /admin/dashboard/gallery in 261ms (446 modules)
+ GET /admin/dashboard/gallery 200 in 449ms
+ ✓ Compiled /admin/dashboard/stories in 185ms (451 modules)
+ GET /admin/dashboard/stories 200 in 304ms
+ ✓ Compiled /admin/dashboard/team in 218ms (456 modules)
+ GET /admin/dashboard/team 200 in 338ms
+ ✓ Compiled /admin/dashboard/projects in 145ms (462 modules)
+ GET /admin/dashboard/projects 200 in 279ms
+ ✓ Compiled /admin/dashboard/events in 146ms (468 modules)
+ GET /admin/dashboard/events 200 in 245ms
+ ✓ Compiled /admin/dashboard/articles in 153ms (474 modules)
+ GET /admin/dashboard/articles 200 in 267ms
+ GET /admin/dashboard 200 in 67ms
+ GET /admin/settings/general 200 in 54ms
+ ○ Compiling /admin/dashboard/homepage ...
+ ✓ Compiled /admin/dashboard/homepage in 585ms (448 modules)
+ ✓ Compiled /admin/settings in 302ms (452 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 770ms (909 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 956ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 43ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 63ms
+ ✓ Compiled /admin/dashboard/articles in 208ms (459 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 92ms
+ ✓ Compiled in 304ms (468 modules)
+ ✓ Compiled in 549ms (837 modules)
+ ✓ Compiled in 669ms (837 modules)
+ ✓ Compiled in 427ms (837 modules)
+ ✓ Compiled in 401ms (841 modules)
+ ✓ Compiled in 383ms (843 modules)
+ ✓ Compiled in 434ms (843 modules)
+ ✓ Compiled /admin/settings in 256ms (380 modules)
+ GET /admin/settings 200 in 468ms
+ GET /admin/settings/general 200 in 75ms
+ GET /admin/settings/home 200 in 57ms
+ GET /admin/settings/wwd 200 in 44ms
+ GET /admin/settings/services 200 in 60ms
+ GET /admin/settings/about 200 in 65ms
+ GET /admin/settings/help 200 in 39ms
+ GET /admin/settings/involve 200 in 59ms
+ GET /admin/settings/projects 200 in 38ms
+ GET /admin/settings/events 200 in 42ms
+ GET /admin/settings/gallery 200 in 70ms
+ GET /admin/settings/insights 200 in 77ms
+ GET /admin/settings/contact 200 in 27ms
+ GET /admin/settings/support 200 in 35ms
+ GET /admin/settings/social 200 in 75ms
+ GET /admin/settings/stats 200 in 72ms
+ GET /admin/settings/donation 200 in 50ms
+ ✓ Compiled / in 243ms (455 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on / specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ GET / 200 in 470ms
+ ✓ Compiled /what-we-do in 134ms (461 modules)
+ GET /what-we-do 200 in 260ms
+ ✓ Compiled /about in 498ms (947 modules)
+ GET /about 200 in 568ms
+ ✓ Compiled /contact in 473ms (942 modules)
+ GET /contact 200 in 551ms
+ ✓ Compiled /what-we-do/[slug] in 424ms (411 modules)
+ GET /what-we-do/mental-health-awareness 404 in 756ms
+ GET /what-we-do/awareness 200 in 90ms
+ GET /what-we-do/education 200 in 47ms
+ GET /what-we-do/referral 200 in 40ms
+ GET /what-we-do/community 200 in 29ms
+ GET /what-we-do/vulnerable 200 in 47ms
+ GET /what-we-do/research 200 in 54ms
+ ✓ Compiled /admin/dashboard in 382ms (417 modules)
+ GET /admin/dashboard 200 in 559ms
+ GET /admin/dashboard/projects 200 in 73ms
+ ✓ Compiled /admin/dashboard/events in 185ms (423 modules)
+ GET /admin/dashboard/events 200 in 303ms
+ GET /admin/dashboard/articles 200 in 63ms
+ ✓ Compiled /admin/dashboard/gallery in 135ms (428 modules)
+ GET /admin/dashboard/gallery 200 in 263ms
+ ✓ Compiled /admin/dashboard/stories in 132ms (433 modules)
+ GET /admin/dashboard/stories 200 in 231ms
+ ✓ Compiled /admin/dashboard/team in 175ms (438 modules)
+ GET /admin/dashboard/team 200 in 279ms
+ GET /admin/dashboard/settings 200 in 65ms
+ ✓ Compiled in 600ms (852 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 647ms (852 modules)
+ GET /admin/settings/services 200 in 304ms
+ ✓ Compiled in 806ms (852 modules)
+ ✓ Compiled in 367ms (852 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /admin/settings/services 200 in 101ms
+ ✓ Compiled in 380ms (852 modules)
+ ✓ Compiled in 370ms (852 modules)
+ ✓ Compiled in 332ms (852 modules)
+ ✓ Compiled in 410ms (852 modules)
+ ✓ Compiled in 456ms (852 modules)
+ ✓ Compiled in 457ms (852 modules)
+ GET /admin/settings/general 200 in 58ms
+ GET /admin/settings/about 200 in 73ms
+ GET /admin/settings/help 200 in 73ms
+ GET /admin/settings/wwd 200 in 86ms
+ GET /admin/settings/services 200 in 49ms
+ ○ Compiling /admin/settings ...
+ ✓ Compiled /admin/settings in 529ms (380 modules)
+ ✓ Compiled / in 439ms (455 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on / specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ GET / 200 in 791ms
+ ✓ Compiled /admin/dashboard/events in 448ms (449 modules)
+ ○ Compiling /admin/dashboard/events/[id] ...
+ ✓ Compiled /admin/dashboard/events/[id] in 936ms (940 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on /?_rsc=qt7ii specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ ✓ Compiled in 489ms (484 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on /?_rsc=qt7ii specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 827ms (916 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 1075ms
+ ✓ Compiled /events/[slug] in 352ms (456 modules)
+ ✓ Compiled /admin/dashboard/events/[id] in 292ms (451 modules)
+ GET /admin/dashboard/events/ee827bba-132e-4be4-8dbf-833d107bf85a 200 in 513ms
+ ✓ Compiled in 769ms (916 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on /?_rsc=qt7ii specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+[TypeError: fetch failed] {
+  [cause]: AggregateError [ECONNREFUSED]: 
+      at internalConnectMultiple (node:net:1193:18)
+      at afterConnectMultiple (node:net:1783:7) {
+    code: 'ECONNREFUSED',
+    [errors]: [ [Error], [Error] ]
+  }
+}
+ ✓ Compiled in 425ms (484 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on /?_rsc=qt7ii specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ ✓ Compiled /what-we-do/[slug] in 457ms (453 modules)
+ ○ Compiling /admin/dashboard/events ...
+ ✓ Compiled /admin/dashboard/events in 554ms (452 modules)
+ ✓ Compiled /events/[slug] in 313ms (451 modules)
+ GET /events/youth-mental-health-workshop-2026 404 in 561ms
+ GET /events/youth-mental-health-workshop-2026 200 in 108ms
+ GET /events/community-outreach-programme-2026 200 in 82ms
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on /?_rsc=n6toq specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ ○ Compiling /events ...
+ ✓ Compiled /events in 1267ms (932 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on /?_rsc=n6toq specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on /?_rsc=n6toq specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ ✓ Compiled in 365ms (491 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on /?_rsc=qt7ii specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ ✓ Compiled in 766ms (933 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on /?_rsc=qt7ii specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ ✓ Compiled in 259ms (491 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on /?_rsc=qt7ii specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ ✓ Compiled in 389ms (491 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on /?_rsc=qt7ii specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on / specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ GET / 200 in 230ms
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on /?_rsc=n6toq specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ ✓ Compiled in 765ms (933 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ components\public\events-content.tsx (251:21) @ useCallback
+ ⨯ ReferenceError: useCallback is not defined
+    at EventsContent (./components/public/events-content.tsx:336:23)
+digest: "1030082625"
+[0m [90m 249 |[39m   }[33m,[39m [])[33m;[39m[0m
+[0m [90m 250 |[39m[0m
+[0m[31m[1m>[22m[39m[90m 251 |[39m   [36mconst[39m nextFlyer [33m=[39m useCallback(() [33m=>[39m {[0m
+[0m [90m     |[39m                     [31m[1m^[22m[39m[0m
+[0m [90m 252 |[39m     setActiveFlyer((prev) [33m=>[39m (prev [33m+[39m [35m1[39m) [33m%[39m [33mMath[39m[33m.[39mmax(upcomingList[33m.[39mlength[33m,[39m [35m1[39m))[33m;[39m[0m
+[0m [90m 253 |[39m   }[33m,[39m [upcomingList[33m.[39mlength])[33m;[39m[0m
+[0m [90m 254 |[39m[0m
+ GET /events 500 in 469ms
+ ✓ Compiled in 758ms (933 modules)
+ ✓ Compiled in 489ms (933 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ components\public\events-content.tsx (651:18) @ ChevronLeft
+ ⨯ ReferenceError: ChevronLeft is not defined
+    at EventsContent (./components/public/events-content.tsx:1401:131)
+digest: "3166960609"
+[0m [90m 649 |[39m                 className[33m=[39m[32m"absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur-sm transition-all duration-300 hover:bg-black/50"[39m[0m
+[0m [90m 650 |[39m               [33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 651 |[39m                 [33m<[39m[33mChevronLeft[39m className[33m=[39m[32m"h-5 w-5"[39m [33m/[39m[33m>[39m[0m
+[0m [90m     |[39m                  [31m[1m^[22m[39m[0m
+[0m [90m 652 |[39m               [33m<[39m[33m/[39m[33mbutton[39m[33m>[39m[0m
+[0m [90m 653 |[39m               [33m<[39m[33mbutton[39m[0m
+[0m [90m 654 |[39m                 onClick[33m=[39m{() [33m=>[39m setActiveFlyer((prev) [33m=>[39m (prev [33m+[39m [35m1[39m) [33m%[39m [33mMath[39m[33m.[39mmax(upcomingList[33m.[39mlength[33m,[39m [35m1[39m))}[0m
+ GET /events 500 in 143ms
+ ✓ Compiled in 493ms (933 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /events 200 in 76ms
+ ✓ Compiled in 230ms (919 modules)
+ ✓ Compiled in 426ms (933 modules)
+ ✓ Compiled in 331ms (933 modules)
+ ✓ Compiled in 423ms (933 modules)
+ ✓ Compiled in 508ms (933 modules)
+ ✓ Compiled in 549ms (933 modules)
+ ✓ Compiled in 518ms (933 modules)
+ GET /events 200 in 158ms
+ GET /events/youth-mental-health-workshop-2026 200 in 133ms
+ GET /events 200 in 65ms
+ GET /events/youth-mental-health-workshop-2026 200 in 65ms
+ GET /events 200 in 69ms
+ GET /events/youth-mental-health-workshop-2026 200 in 32ms
+ GET /events/mental-health-awareness-walk-2026 200 in 71ms
+ GET /events/community-outreach-programme-2026 200 in 84ms
+ GET /events/youth-mental-health-workshop-2026 200 in 78ms
+ GET /events 200 in 29ms
+ GET /events 200 in 54ms
+ GET /events/youth-mental-health-workshop-2026 200 in 44ms
+ GET /events 200 in 57ms
+ GET /events/youth-mental-health-workshop-2026 200 in 58ms
+ GET /events/community-outreach-programme-2026 200 in 45ms
+ GET /events/community-outreach-programme-2026 200 in 69ms
+ GET /events/youth-mental-health-workshop-2026 200 in 48ms
+ GET /events 200 in 58ms
+ GET /events/youth-mental-health-workshop-2026 200 in 54ms
+ GET /events/community-outreach-programme-2026 200 in 71ms
+ GET /events/mental-health-awareness-walk-2026 200 in 58ms
+ GET /events 200 in 69ms
+ GET /events/youth-mental-health-workshop-2026 200 in 81ms
+ GET /events/youth-mental-health-workshop-2026 200 in 55ms
+ GET /events/youth-mental-health-workshop-2026 200 in 47ms
+ GET /events/mental-health-awareness-community-forum 200 in 79ms
+ GET /events/mental-health-awareness-community-forum 200 in 58ms
+ GET /events/workplace-wellness-seminar 200 in 80ms
+ GET /events/workplace-wellness-seminar 200 in 72ms
+ GET /events/mental-health-awareness-community-forum 200 in 81ms
+ GET /events/mental-health-awareness-community-forum 200 in 59ms
+ GET /events/mental-health-awareness-community-forum 200 in 67ms
+ GET /events/mental-health-awareness-community-forum 200 in 77ms
+ GET /events/mental-health-awareness-community-forum 200 in 57ms
+ GET /events/mental-health-awareness-community-forum 200 in 56ms
+ GET /events/workplace-wellness-seminar 200 in 61ms
+ ✓ Compiled in 1264ms (933 modules)
+ ✓ Compiled in 728ms (933 modules)
+ GET /events 200 in 190ms
+ GET /events 200 in 65ms
+ GET /events/community-mental-health-forum-2025 200 in 107ms
+ GET /events/school-outreach-programme-2025 200 in 65ms
+ GET /events/world-mental-health-day-celebration-2024 200 in 65ms
+ GET /events/professional-referral-launch-2024 200 in 76ms
+ GET /events/community-mental-health-forum-2025 200 in 42ms
+ GET /events 200 in 60ms
+ GET /events/community-mental-health-forum-2025 200 in 63ms
+ GET /events/school-outreach-programme-2025 200 in 71ms
+ GET /events/world-mental-health-day-celebration-2024 200 in 66ms
+ GET /events/professional-referral-launch-2024 200 in 62ms
+ GET /events/community-mental-health-forum-2025 200 in 65ms
+ GET /events 200 in 49ms
+ GET /events/community-mental-health-forum-2025 200 in 66ms
+ GET /events/community-mental-health-forum-2025 200 in 59ms
+ GET /events/community-mental-health-forum-2025 200 in 63ms
+ GET /events/community-mental-health-forum-2025 200 in 62ms
+ GET /events/community-mental-health-forum-2025 200 in 60ms
+ GET /events/community-mental-health-forum-2025 200 in 74ms
+ GET /events/school-outreach-programme-2025 200 in 94ms
+ GET /events/world-mental-health-day-celebration-2024 200 in 22ms
+ GET /events/professional-referral-launch-2024 200 in 22ms
+ GET /events 200 in 104ms
+ ○ Compiling /insights ...
+ ✓ Compiled /insights in 1414ms (929 modules)
+ ○ Compiling /admin/dashboard/enquiries ...
+ ✓ Compiled /admin/dashboard/enquiries in 529ms (438 modules)
+ ✓ Compiled /admin/dashboard/team in 254ms (443 modules)
+ ✓ Compiled /admin/dashboard in 297ms (449 modules)
+ ✓ Compiled in 1202ms (918 modules)
+ ✓ Compiled in 258ms (494 modules)
+ ✓ Compiled in 486ms (904 modules)
+ ✓ Compiled in 385ms (904 modules)
+ ✓ Compiled in 446ms (904 modules)
+ ✓ Compiled in 514ms (918 modules)
+ ✓ Compiled in 270ms (903 modules)
+ ✓ Compiled in 608ms (917 modules)
+ ✓ Compiled in 573ms (917 modules)
+ ✓ Compiled in 261ms (494 modules)
+ ✓ Compiled in 217ms (494 modules)
+ ✓ Compiled in 440ms (903 modules)
+ ○ Compiling /unsubscribe ...
+ ✓ Compiled /unsubscribe in 875ms (928 modules)
+ GET /unsubscribe?email=test@example.com 200 in 1056ms
+ ○ Compiling /admin/dashboard/newsletter ...
+ ✓ Compiled /admin/dashboard/newsletter in 543ms (926 modules)
+ GET /admin/dashboard/newsletter 200 in 652ms
+ GET /admin/dashboard 200 in 103ms
+ ○ Compiling /contact ...
+ ✓ Compiled /contact in 986ms (430 modules)
+ ⚠ Fast Refresh had to perform a full reload when (app-pages-browser)/../../node_modules/.pnpm/lucide-react@0.300.0_react@18.3.1/node_modules/lucide-react/dist/esm/icons/x.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 1688ms (932 modules)
+ GET /admin/dashboard/newsletter 200 in 959ms
+ GET /admin/dashboard/newsletter 200 in 49ms
+ ○ Compiling /admin/dashboard/enquiries ...
+ ✓ Compiled /admin/dashboard/enquiries in 683ms (429 modules)
+ ✓ Compiled in 779ms (861 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /admin/dashboard/enquiries 200 in 143ms
+ ⚠ Fast Refresh had to perform a full reload when (app-pages-browser)/../../node_modules/.pnpm/lucide-react@0.300.0_react@18.3.1/node_modules/lucide-react/dist/esm/icons/x.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 844ms (877 modules)
+ GET /admin/dashboard/enquiries 200 in 506ms
+ ○ Compiling /gallery ...
+ ✓ Compiled /gallery in 1221ms (877 modules)
+ ○ Compiling /contact ...
+ ✓ Compiled /contact in 666ms (389 modules)
+ ○ Compiling /what-we-do/[slug] ...
+ ✓ Compiled /what-we-do/[slug] in 578ms (411 modules)
+ ○ Compiling /get-involved ...
+ ✓ Compiled /get-involved in 1313ms (918 modules)
+ ○ Compiling /get-help ...
+ ✓ Compiled /get-help in 1123ms (922 modules)
+ GET /admin/dashboard/enquiries 200 in 411ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 778ms (888 modules)
+ GET /resources/recognising-warning-signs.pdf 404 in 171ms
+ ✓ Compiled in 4.8s (891 modules)
+ ⨯ ./lib/admin-nav.ts
+Error: 
+  [31mx[0m the name `BookOpen` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:12:1]
+ [2m12[0m |   Folder,
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+    : [31;1m  ^^^^|^^^[0m
+    :       [31;1m`-- [31;1mprevious definition of `BookOpen` here[0m[0m
+ [2m16[0m |   HeartHandshake,
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+    : [33;1m  ^^^^|^^^[0m
+    :       [33;1m`-- [33;1m`BookOpen` redefined here[0m[0m
+ [2m30[0m |   HeartHandshake,
+ [2m31[0m | } from 'lucide-react';
+    `----
+
+  [31mx[0m the name `HeartHandshake` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:13:1]
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+ [2m16[0m |   HeartHandshake,
+    : [31;1m  ^^^^^^^|^^^^^^[0m
+    :          [31;1m`-- [31;1mprevious definition of `HeartHandshake` here[0m[0m
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+ [2m30[0m |   HeartHandshake,
+    : [33;1m  ^^^^^^^|^^^^^^[0m
+    :          [33;1m`-- [33;1m`HeartHandshake` redefined here[0m[0m
+ [2m31[0m | } from 'lucide-react';
+ [2m32[0m | 
+ [2m33[0m | export interface NavItem {
+    `----
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⨯ ./lib/admin-nav.ts
+Error: 
+  [31mx[0m the name `BookOpen` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:12:1]
+ [2m12[0m |   Folder,
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+    : [31;1m  ^^^^|^^^[0m
+    :       [31;1m`-- [31;1mprevious definition of `BookOpen` here[0m[0m
+ [2m16[0m |   HeartHandshake,
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+    : [33;1m  ^^^^|^^^[0m
+    :       [33;1m`-- [33;1m`BookOpen` redefined here[0m[0m
+ [2m30[0m |   HeartHandshake,
+ [2m31[0m | } from 'lucide-react';
+    `----
+
+  [31mx[0m the name `HeartHandshake` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:13:1]
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+ [2m16[0m |   HeartHandshake,
+    : [31;1m  ^^^^^^^|^^^^^^[0m
+    :          [31;1m`-- [31;1mprevious definition of `HeartHandshake` here[0m[0m
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+ [2m30[0m |   HeartHandshake,
+    : [33;1m  ^^^^^^^|^^^^^^[0m
+    :          [33;1m`-- [33;1m`HeartHandshake` redefined here[0m[0m
+ [2m31[0m | } from 'lucide-react';
+ [2m32[0m | 
+ [2m33[0m | export interface NavItem {
+    `----
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⨯ ./lib/admin-nav.ts
+Error: 
+  [31mx[0m the name `BookOpen` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:12:1]
+ [2m12[0m |   Folder,
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+    : [31;1m  ^^^^|^^^[0m
+    :       [31;1m`-- [31;1mprevious definition of `BookOpen` here[0m[0m
+ [2m16[0m |   HeartHandshake,
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+    : [33;1m  ^^^^|^^^[0m
+    :       [33;1m`-- [33;1m`BookOpen` redefined here[0m[0m
+ [2m30[0m |   HeartHandshake,
+ [2m31[0m | } from 'lucide-react';
+    `----
+
+  [31mx[0m the name `HeartHandshake` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:13:1]
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+ [2m16[0m |   HeartHandshake,
+    : [31;1m  ^^^^^^^|^^^^^^[0m
+    :          [31;1m`-- [31;1mprevious definition of `HeartHandshake` here[0m[0m
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+ [2m30[0m |   HeartHandshake,
+    : [33;1m  ^^^^^^^|^^^^^^[0m
+    :          [33;1m`-- [33;1m`HeartHandshake` redefined here[0m[0m
+ [2m31[0m | } from 'lucide-react';
+ [2m32[0m | 
+ [2m33[0m | export interface NavItem {
+    `----
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⨯ ./lib/admin-nav.ts
+Error: 
+  [31mx[0m the name `BookOpen` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:12:1]
+ [2m12[0m |   Folder,
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+    : [31;1m  ^^^^|^^^[0m
+    :       [31;1m`-- [31;1mprevious definition of `BookOpen` here[0m[0m
+ [2m16[0m |   HeartHandshake,
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+    : [33;1m  ^^^^|^^^[0m
+    :       [33;1m`-- [33;1m`BookOpen` redefined here[0m[0m
+ [2m30[0m |   HeartHandshake,
+ [2m31[0m | } from 'lucide-react';
+    `----
+
+  [31mx[0m the name `HeartHandshake` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:13:1]
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+ [2m16[0m |   HeartHandshake,
+    : [31;1m  ^^^^^^^|^^^^^^[0m
+    :          [31;1m`-- [31;1mprevious definition of `HeartHandshake` here[0m[0m
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+ [2m30[0m |   HeartHandshake,
+    : [33;1m  ^^^^^^^|^^^^^^[0m
+    :          [33;1m`-- [33;1m`HeartHandshake` redefined here[0m[0m
+ [2m31[0m | } from 'lucide-react';
+ [2m32[0m | 
+ [2m33[0m | export interface NavItem {
+    `----
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⨯ ./lib/admin-nav.ts
+Error: 
+  [31mx[0m the name `BookOpen` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:12:1]
+ [2m12[0m |   Folder,
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+    : [31;1m  ^^^^|^^^[0m
+    :       [31;1m`-- [31;1mprevious definition of `BookOpen` here[0m[0m
+ [2m16[0m |   HeartHandshake,
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+    : [33;1m  ^^^^|^^^[0m
+    :       [33;1m`-- [33;1m`BookOpen` redefined here[0m[0m
+ [2m30[0m |   HeartHandshake,
+ [2m31[0m | } from 'lucide-react';
+    `----
+
+  [31mx[0m the name `HeartHandshake` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:13:1]
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+ [2m16[0m |   HeartHandshake,
+    : [31;1m  ^^^^^^^|^^^^^^[0m
+    :          [31;1m`-- [31;1mprevious definition of `HeartHandshake` here[0m[0m
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+ [2m30[0m |   HeartHandshake,
+    : [33;1m  ^^^^^^^|^^^^^^[0m
+    :          [33;1m`-- [33;1m`HeartHandshake` redefined here[0m[0m
+ [2m31[0m | } from 'lucide-react';
+ [2m32[0m | 
+ [2m33[0m | export interface NavItem {
+    `----
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⨯ ./lib/admin-nav.ts
+Error: 
+  [31mx[0m the name `Camera` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:15:1]
+ [2m15[0m |   BookOpen,
+ [2m16[0m |   HeartHandshake,
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+    : [31;1m  ^^^|^^[0m
+    :      [31;1m`-- [31;1mprevious definition of `Camera` here[0m[0m
+ [2m19[0m |   Camera,
+    : [33;1m  ^^^|^^[0m
+    :      [33;1m`-- [33;1m`Camera` redefined here[0m[0m
+ [2m20[0m |   Lightbulb,
+ [2m21[0m |   Phone,
+ [2m22[0m |   LifeBuoy,
+    `----
+
+  [31mx[0m the name `BookOpen` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:12:1]
+ [2m12[0m |   Folder,
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+    : [31;1m  ^^^^|^^^[0m
+    :       [31;1m`-- [31;1mprevious definition of `BookOpen` here[0m[0m
+ [2m16[0m |   HeartHandshake,
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Camera,
+ [2m20[0m |   Lightbulb,
+ [2m21[0m |   Phone,
+ [2m22[0m |   LifeBuoy,
+ [2m23[0m |   Globe,
+ [2m24[0m |   BarChart3,
+ [2m25[0m |   Briefcase,
+ [2m26[0m |   Home,
+ [2m27[0m |   Megaphone,
+ [2m28[0m |   Info,
+ [2m29[0m |   Mail,
+ [2m30[0m |   BookOpen,
+    : [33;1m  ^^^^|^^^[0m
+    :       [33;1m`-- [33;1m`BookOpen` redefined here[0m[0m
+ [2m31[0m |   HeartHandshake,
+ [2m32[0m | } from 'lucide-react';
+    `----
+
+  [31mx[0m the name `HeartHandshake` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:13:1]
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+ [2m16[0m |   HeartHandshake,
+    : [31;1m  ^^^^^^^|^^^^^^[0m
+    :          [31;1m`-- [31;1mprevious definition of `HeartHandshake` here[0m[0m
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Camera,
+ [2m20[0m |   Lightbulb,
+ [2m21[0m |   Phone,
+ [2m22[0m |   LifeBuoy,
+ [2m23[0m |   Globe,
+ [2m24[0m |   BarChart3,
+ [2m25[0m |   Briefcase,
+ [2m26[0m |   Home,
+ [2m27[0m |   Megaphone,
+ [2m28[0m |   Info,
+ [2m29[0m |   Mail,
+ [2m30[0m |   BookOpen,
+ [2m31[0m |   HeartHandshake,
+    : [33;1m  ^^^^^^^|^^^^^^[0m
+    :          [33;1m`-- [33;1m`HeartHandshake` redefined here[0m[0m
+ [2m32[0m | } from 'lucide-react';
+ [2m33[0m | 
+ [2m34[0m | export interface NavItem {
+    `----
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ✓ Compiled in 1195ms (877 modules)
+ ✓ Compiled in 955ms (517 modules)
+ ✓ Compiled in 973ms (517 modules)
+ ✓ Compiled in 1713ms (891 modules)
+ ✓ Compiled in 618ms (517 modules)
+ ✓ Compiled in 1723ms (891 modules)
+ ✓ Compiled in 1137ms (517 modules)
+ ✓ Compiled in 718ms (517 modules)
+ ✓ Compiled in 708ms (517 modules)
+ ✓ Compiled in 680ms (517 modules)
+ ✓ Compiled in 803ms (517 modules)
+ ✓ Compiled in 328ms (503 modules)
+ ✓ Compiled in 658ms (517 modules)
+ ✓ Compiled in 1674ms (891 modules)
+ ✓ Compiled in 1782ms (891 modules)
+ ✓ Compiled in 1235ms (877 modules)
+ ✓ Compiled in 1365ms (877 modules)
+ ⨯ ./lib/admin-nav.ts
+Error: 
+  [31mx[0m the name `BookOpen` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:12:1]
+ [2m12[0m |   Folder,
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+    : [31;1m  ^^^^|^^^[0m
+    :       [31;1m`-- [31;1mprevious definition of `BookOpen` here[0m[0m
+ [2m16[0m |   HeartHandshake,
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+    : [33;1m  ^^^^|^^^[0m
+    :       [33;1m`-- [33;1m`BookOpen` redefined here[0m[0m
+ [2m30[0m |   HeartHandshake,
+ [2m31[0m | } from 'lucide-react';
+    `----
+
+  [31mx[0m the name `HeartHandshake` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:13:1]
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+ [2m16[0m |   HeartHandshake,
+    : [31;1m  ^^^^^^^|^^^^^^[0m
+    :          [31;1m`-- [31;1mprevious definition of `HeartHandshake` here[0m[0m
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+ [2m30[0m |   HeartHandshake,
+    : [33;1m  ^^^^^^^|^^^^^^[0m
+    :          [33;1m`-- [33;1m`HeartHandshake` redefined here[0m[0m
+ [2m31[0m | } from 'lucide-react';
+ [2m32[0m | 
+ [2m33[0m | export interface NavItem {
+    `----
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⨯ ./lib/admin-nav.ts
+Error: 
+  [31mx[0m the name `BookOpen` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:12:1]
+ [2m12[0m |   Folder,
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+    : [31;1m  ^^^^|^^^[0m
+    :       [31;1m`-- [31;1mprevious definition of `BookOpen` here[0m[0m
+ [2m16[0m |   HeartHandshake,
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+    : [33;1m  ^^^^|^^^[0m
+    :       [33;1m`-- [33;1m`BookOpen` redefined here[0m[0m
+ [2m30[0m |   HeartHandshake,
+ [2m31[0m | } from 'lucide-react';
+    `----
+
+  [31mx[0m the name `HeartHandshake` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:13:1]
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+ [2m16[0m |   HeartHandshake,
+    : [31;1m  ^^^^^^^|^^^^^^[0m
+    :          [31;1m`-- [31;1mprevious definition of `HeartHandshake` here[0m[0m
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+ [2m30[0m |   HeartHandshake,
+    : [33;1m  ^^^^^^^|^^^^^^[0m
+    :          [33;1m`-- [33;1m`HeartHandshake` redefined here[0m[0m
+ [2m31[0m | } from 'lucide-react';
+ [2m32[0m | 
+ [2m33[0m | export interface NavItem {
+    `----
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ⨯ ./lib/admin-nav.ts
+Error: 
+  [31mx[0m the name `BookOpen` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:12:1]
+ [2m12[0m |   Folder,
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+    : [31;1m  ^^^^|^^^[0m
+    :       [31;1m`-- [31;1mprevious definition of `BookOpen` here[0m[0m
+ [2m16[0m |   HeartHandshake,
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+    : [33;1m  ^^^^|^^^[0m
+    :       [33;1m`-- [33;1m`BookOpen` redefined here[0m[0m
+ [2m30[0m |   HeartHandshake,
+ [2m31[0m | } from 'lucide-react';
+    `----
+
+  [31mx[0m the name `HeartHandshake` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\lib\admin-nav.ts[0m:13:1]
+ [2m13[0m |   Palette,
+ [2m14[0m |   Heart,
+ [2m15[0m |   BookOpen,
+ [2m16[0m |   HeartHandshake,
+    : [31;1m  ^^^^^^^|^^^^^^[0m
+    :          [31;1m`-- [31;1mprevious definition of `HeartHandshake` here[0m[0m
+ [2m17[0m |   FolderKanban,
+ [2m18[0m |   Camera,
+ [2m19[0m |   Lightbulb,
+ [2m20[0m |   Phone,
+ [2m21[0m |   LifeBuoy,
+ [2m22[0m |   Globe,
+ [2m23[0m |   BarChart3,
+ [2m24[0m |   Briefcase,
+ [2m25[0m |   Home,
+ [2m26[0m |   Megaphone,
+ [2m27[0m |   Info,
+ [2m28[0m |   Mail,
+ [2m29[0m |   BookOpen,
+ [2m30[0m |   HeartHandshake,
+    : [33;1m  ^^^^^^^|^^^^^^[0m
+    :          [33;1m`-- [33;1m`HeartHandshake` redefined here[0m[0m
+ [2m31[0m | } from 'lucide-react';
+ [2m32[0m | 
+ [2m33[0m | export interface NavItem {
+    `----
+
+Import trace for requested module:
+./lib/admin-nav.ts
+./app/admin/layout.tsx
+ ✓ Compiled in 1749ms (891 modules)
+ ✓ Compiled in 622ms (517 modules)
+ ○ Compiling /get-help ...
+ ✓ Compiled /get-help in 925ms (382 modules)
+ GET /get-help 200 in 1440ms
+ GET /get-help 200 in 79ms
+ GET /get-help 200 in 85ms
+ GET /get-help 200 in 92ms
+ GET /get-help 200 in 99ms
+ ○ Compiling /resources ...
+ ✓ Compiled /resources in 797ms (887 modules)
+ GET /resources 200 in 927ms
+ ✓ Compiled /partners in 413ms (898 modules)
+ GET /partners 200 in 498ms
+ ✓ Compiled /admin/dashboard/resources in 419ms (906 modules)
+ GET /admin/dashboard/resources 200 in 564ms
+ ○ Compiling /admin/dashboard/partners ...
+ ✓ Compiled /admin/dashboard/partners in 635ms (914 modules)
+ GET /admin/dashboard/partners 200 in 720ms
+ GET /resources 200 in 71ms
+ GET /partners 200 in 49ms
+ GET /admin/dashboard/resources 200 in 70ms
+ GET /admin/dashboard/partners 200 in 70ms
+ GET /resources 200 in 69ms
+ GET /partners 200 in 66ms
+ GET /admin/dashboard/resources 200 in 60ms
+ GET /admin/dashboard/partners 200 in 75ms
+ ○ Compiling /insights ...
+ ✓ Compiled /insights in 838ms (409 modules)
+ GET /insights 200 in 1149ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1204ms (453 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on /?_rsc=n6toq specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ ○ Compiling /about ...
+ ✓ Compiled /about in 596ms (454 modules)
+ GET /resources 200 in 261ms
+ GET /partners 200 in 102ms
+ GET /admin/dashboard/resources 200 in 50ms
+ GET /admin/dashboard/partners 200 in 77ms
+ GET /resources 200 in 64ms
+ GET /partners 200 in 104ms
+ ○ Compiling /contact ...
+ ✓ Compiled /contact in 742ms (453 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 1361ms (932 modules)
+ GET /partners 200 in 583ms
+ GET /get-help 200 in 563ms
+ ✓ Compiled in 572ms (932 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /partners 200 in 244ms
+ GET /get-help 200 in 247ms
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on / specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ GET / 200 in 93ms
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on / specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ GET / 200 in 107ms
+ ○ Compiling /insights ...
+ ✓ Compiled /insights in 513ms (409 modules)
+ ○ Compiling /projects ...
+ ✓ Compiled /projects in 1759ms (940 modules)
+ ○ Compiling /events ...
+ ✓ Compiled /events in 637ms (370 modules)
+ ○ Compiling /resources ...
+ ✓ Compiled /resources in 985ms (369 modules)
+ ○ Compiling /admin/dashboard/homepage ...
+ ✓ Compiled /admin/dashboard/homepage in 1401ms (397 modules)
+ ✓ Compiled in 2.3s (877 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /partners 200 in 359ms
+ GET /resources 200 in 117ms
+ ✓ Compiled in 367ms (537 modules)
+ ✓ Compiled in 454ms (537 modules)
+ ✓ Compiled in 294ms (537 modules)
+ ✓ Compiled in 628ms (891 modules)
+ ✓ Compiled in 403ms (891 modules)
+ ✓ Compiled in 309ms (537 modules)
+ ⨯ SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at loadManifest (C:\Users\HP USER\shadam\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\load-manifest.js:36:25)
+    at DevServer.getNextFontManifest (C:\Users\HP USER\shadam\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\next-server.js:750:47)
+    at DevServer.findPageComponents (C:\Users\HP USER\shadam\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\next-dev-server.js:571:43)
+    at async DevServer.renderPageComponent (C:\Users\HP USER\shadam\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:1910:24)
+    at async DevServer.renderToResponseImpl (C:\Users\HP USER\shadam\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:1962:32)
+    at async DevServer.pipeImpl (C:\Users\HP USER\shadam\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:922:25)
+    at async NextNodeServer.handleCatchallRenderRequest (C:\Users\HP USER\shadam\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\next-server.js:272:17)
+    at async DevServer.handleRequestImpl (C:\Users\HP USER\shadam\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\base-server.js:818:17)
+    at async C:\Users\HP USER\shadam\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\next-dev-server.js:339:20
+    at async Span.traceAsyncFn (C:\Users\HP USER\shadam\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\trace\trace.js:154:20)
+    at async DevServer.handleRequest (C:\Users\HP USER\shadam\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\dev\next-dev-server.js:336:24)
+    at async invokeRender (C:\Users\HP USER\shadam\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js:179:21)
+    at async handleRequest (C:\Users\HP USER\shadam\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js:359:24)
+    at async requestHandlerImpl (C:\Users\HP USER\shadam\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\router-server.js:383:13)
+    at async Server.requestListener (C:\Users\HP USER\shadam\node_modules\.pnpm\next@14.2.35_react-dom@18.3.1_react@18.3.1__react@18.3.1\node_modules\next\dist\server\lib\start-server.js:141:13) {
+  page: '/resources'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 3.7s (1104 modules)
+ GET /resources 200 in 90ms
+ ⨯ ./components/public/resources-content.tsx
+Error: 
+  [31mx[0m the name `Link` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\components\public\resources-content.tsx[0m:1:1]
+ [2m 1[0m | 'use client';
+ [2m 2[0m | 
+ [2m 3[0m | import Link from 'next/link';
+    : [31;1m       ^^|^[0m
+    :          [31;1m`-- [31;1mprevious definition of `Link` here[0m[0m
+ [2m 4[0m | import { useEffect, useState } from 'react';
+ [2m 5[0m | import {
+ [2m 6[0m |   ArrowRight,
+ [2m 7[0m |   BookOpen,
+ [2m 8[0m |   CheckSquare,
+ [2m 9[0m |   ChevronRight,
+ [2m10[0m |   Download,
+ [2m11[0m |   FileText,
+ [2m12[0m |   Sparkles,
+ [2m13[0m |   Video,
+ [2m14[0m | } from 'lucide-react';
+ [2m15[0m | import { useResources, useSettingsMap } from '@/hooks/use-api';
+ [2m16[0m | import Link from 'next/link';
+    : [33;1m       ^^|^[0m
+    :          [33;1m`-- [33;1m`Link` redefined here[0m[0m
+ [2m17[0m | 
+ [2m18[0m | function useInView(threshold = 0.1) {
+ [2m19[0m |   const [ref, setRef] = useState<HTMLElement | null>(null);
+    `----
+
+Import trace for requested module:
+./components/public/resources-content.tsx
+./app/(public)/resources/page.tsx
+ GET /partners 500 in 23ms
+ GET /resources 500 in 26ms
+ ○ Compiling /_not-found ...
+ ⨯ ./components/public/resources-content.tsx
+Error: 
+  [31mx[0m the name `Link` is defined multiple times
+    ,-[[36;1;4mC:\Users\HP USER\shadam\apps\web\components\public\resources-content.tsx[0m:1:1]
+ [2m 1[0m | 'use client';
+ [2m 2[0m | 
+ [2m 3[0m | import Link from 'next/link';
+    : [31;1m       ^^|^[0m
+    :          [31;1m`-- [31;1mprevious definition of `Link` here[0m[0m
+ [2m 4[0m | import { useEffect, useState } from 'react';
+ [2m 5[0m | import {
+ [2m 6[0m |   ArrowRight,
+ [2m 7[0m |   BookOpen,
+ [2m 8[0m |   CheckSquare,
+ [2m 9[0m |   ChevronRight,
+ [2m10[0m |   Download,
+ [2m11[0m |   FileText,
+ [2m12[0m |   Sparkles,
+ [2m13[0m |   Video,
+ [2m14[0m | } from 'lucide-react';
+ [2m15[0m | import { useResources, useSettingsMap } from '@/hooks/use-api';
+ [2m16[0m | import Link from 'next/link';
+    : [33;1m       ^^|^[0m
+    :          [33;1m`-- [33;1m`Link` redefined here[0m[0m
+ [2m17[0m | 
+ [2m18[0m | function useInView(threshold = 0.1) {
+ [2m19[0m |   const [ref, setRef] = useState<HTMLElement | null>(null);
+    `----
+
+Import trace for requested module:
+./components/public/resources-content.tsx
+./app/(public)/resources/page.tsx
+ GET /_next/static/webpack/08eee58c12ef62ad.webpack.hot-update.json 500 in 2501ms
+ GET /_next/static/webpack/08eee58c12ef62ad.webpack.hot-update.json 500 in 2500ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /partners 500 in 211ms
+ GET /resources 500 in 270ms
+ ✓ Compiled /_not-found in 18.5s (1107 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\HP USER\shadam\apps\web\.next\cache\webpack\client-development-fallback\0.pack.gz_' -> 'C:\Users\HP USER\shadam\apps\web\.next\cache\webpack\client-development-fallback\0.pack.gz'
+ GET /_next/static/webpack/08eee58c12ef62ad.webpack.hot-update.json 404 in 18473ms
+ GET /_next/static/webpack/08eee58c12ef62ad.webpack.hot-update.json 404 in 18472ms
+ GET /partners 200 in 322ms
+ GET /resources 200 in 149ms
+ ○ Compiling /admin/dashboard/homepage ...
+ ✓ Compiled /admin/dashboard/homepage in 1068ms (430 modules)
+ GET /admin/dashboard/homepage 200 in 1502ms
+ ✓ Compiled /admin/login in 413ms (434 modules)
+ GET /resources 200 in 78ms
+ ○ Compiling /resources/[id] ...
+ ✓ Compiled /resources/[id] in 1683ms (1132 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /admin/login 200 in 185ms
+ GET /resources/bd57cce5-73a2-4369-8f8c-ed90713a866b 200 in 2357ms
+ ○ Compiling /admin/dashboard/resources ...
+ ✓ Compiled /admin/dashboard/resources in 600ms (431 modules)
+ GET /admin/dashboard/resources 200 in 839ms
+ ○ Compiling /admin/dashboard/resources/[id] ...
+ ✓ Compiled /admin/dashboard/resources/[id] in 1637ms (1157 modules)
+ GET /admin/dashboard/resources/new 200 in 2114ms
+ GET /resources 200 in 99ms
+ GET /resources/bd57cce5-73a2-4369-8f8c-ed90713a866b 200 in 72ms
+ ○ Compiling /admin/dashboard ...
+ ✓ Compiled /admin/dashboard in 809ms (419 modules)
+ GET /admin/dashboard 200 in 1198ms
+ ○ Compiling /admin/dashboard/partners ...
+ ✓ Compiled /admin/dashboard/partners in 527ms (419 modules)
+ ○ Compiling /admin/dashboard/partners/[id] ...
+ ✓ Compiled /admin/dashboard/partners/[id] in 1321ms (1149 modules)
+ ✓ Compiled in 3.8s (1147 modules)
+ ✓ Compiled in 1153ms (1147 modules)
+ ✓ Compiled in 958ms (730 modules)
+ ✓ Compiled in 756ms (730 modules)
+ ✓ Compiled in 437ms (730 modules)
+ ✓ Compiled in 811ms (730 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1296ms (1136 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 1712ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 47ms
+ GET /partners 200 in 119ms
+ ○ Compiling /admin/dashboard/projects ...
+ ✓ Compiled /admin/dashboard/projects in 1114ms (424 modules)
+ ○ Compiling /admin/settings ...
+ ✓ Compiled /admin/settings in 650ms (439 modules)
+ ○ Compiling /admin/settings/[group] ...
+ ✓ Compiled /admin/settings/[group] in 663ms (453 modules)
+ GET /admin/dashboard 200 in 196ms
+ ○ Compiling /admin/dashboard/projects/[id] ...
+ ✓ Compiled /admin/dashboard/projects/[id] in 1866ms (1164 modules)
+ ✓ Compiled /admin/settings in 370ms (448 modules)
+ ✓ Compiled in 1584ms (1167 modules)
+ ○ Compiling /admin/dashboard/media ...
+ ✓ Compiled /admin/dashboard/media in 612ms (455 modules)
+ GET /admin/dashboard/media 200 in 927ms
+ ○ Compiling /admin/dashboard/gallery ...
+ ✓ Compiled /admin/dashboard/gallery in 585ms (460 modules)
+ GET /admin/dashboard/gallery 200 in 877ms
+ GET /admin/dashboard 200 in 78ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1209ms (1182 modules)
+ GET /uploads/undefined 404 in 1407ms
+ ○ Compiling /admin/dashboard/partners ...
+ ✓ Compiled /admin/dashboard/partners in 671ms (466 modules)
+ GET /uploads/undefined 404 in 94ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 6s (1146 modules)
+ GET /admin/dashboard/media 200 in 3987ms
+ GET /resources 200 in 4203ms
+ GET /partners 200 in 4222ms
+ GET /admin/dashboard/media 200 in 73ms
+ ✓ Compiled in 1158ms (733 modules)
+ ✓ Compiled in 855ms (733 modules)
+ ⚠ Found a change in next.config.js. Restarting the server to apply the changes...
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 7.8s
+ ○ Compiling /admin/dashboard/media ...
+ ✓ Compiled /admin/dashboard/media in 13.4s (682 modules)
+ GET /admin/dashboard/media 200 in 14190ms
+ ✓ Compiled in 2.1s (340 modules)
+ ✓ Compiled in 226ms (340 modules)
+ ✓ Compiled in 227ms (340 modules)
+(node:12932) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ○ Compiling / ...
+ ✓ Compiled / in 1112ms (786 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on / specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ GET / 200 in 1359ms
+ GET /admin/dashboard/media 200 in 117ms
+ ○ Compiling /resources ...
+ ✓ Compiled /resources in 976ms (755 modules)
+ GET /resources 200 in 1179ms
+ ✓ Compiled /partners in 459ms (752 modules)
+ GET /partners 200 in 674ms
+ ○ Compiling /gallery ...
+ ✓ Compiled /gallery in 870ms (772 modules)
+ GET /gallery 200 in 1231ms
+ GET /admin/dashboard/media 200 in 63ms
+ ✓ Compiled / in 313ms (429 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on / specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on / specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ GET / 200 in 984ms
+ GET / 200 in 841ms
+ GET /resources 200 in 91ms
+ GET /partners 200 in 60ms
+ GET /gallery 200 in 101ms
+ GET /admin/dashboard/media 200 in 64ms
+ GET /admin/dashboard/media 200 in 78ms
+ ○ Compiling /admin/dashboard/partners ...
+ ✓ Compiled /admin/dashboard/partners in 1165ms (841 modules)
+ ○ Compiling /admin/dashboard/partners/[id] ...
+ ✓ Compiled /admin/dashboard/partners/[id] in 996ms (861 modules)
+ ⚠ fetch for http://localhost:3002/api/v1/homepage on / specified "cache: force-cache" and "revalidate: 60", only one should be specified.
+ GET / 200 in 419ms

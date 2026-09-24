@@ -7,7 +7,9 @@ export class MediaService {
   constructor(private prisma: PrismaService) {}
 
   async findAll(params?: { page?: number; limit?: number; folder?: string }) {
-    const { page = 1, limit = 20, folder } = params || {};
+    const page = Number(params?.page) || 1;
+    const limit = Number(params?.limit) || 20;
+    const { folder } = params || {};
     const skip = (page - 1) * limit;
     const where: any = { deletedAt: null };
     if (folder) where.folder = folder;

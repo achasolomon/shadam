@@ -1,13 +1,25 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import * as express from 'express';
+import * as path from 'path';
+import * as fs from 'fs';
 import { AppModule } from './app.module';
+import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  // Global exception filter for error details
+  app.useGlobalFilters(new AllExceptionsFilter());
+
   // Global prefix
   app.setGlobalPrefix('api/v1');
+
+  // Uploaded media files (outside API prefix)
+  const uploadsDir = path.join(process.cwd(), 'uploads');
+  fs.mkdirSync(uploadsDir, { recursive: true });
+  app.use('/uploads', express.static(uploadsDir, { maxAge: '7d', fallthrough: true }));
 
   // CORS
   app.enableCors({

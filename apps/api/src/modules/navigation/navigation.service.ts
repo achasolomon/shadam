@@ -5,9 +5,10 @@ import { PrismaService } from '../../prisma';
 export class NavigationService {
   constructor(private prisma: PrismaService) {}
 
-  async findByLocation(location: string) {
+  async findByLocation(location?: string) {
+    const loc = (location || 'HEADER').toUpperCase();
     return this.prisma.navigationItem.findMany({
-      where: { location: location as any, status: 'ACTIVE', parentId: null },
+      where: { location: loc as any, status: 'ACTIVE', parentId: null },
       include: { children: { where: { status: 'ACTIVE' }, orderBy: { sortOrder: 'asc' } } },
       orderBy: { sortOrder: 'asc' },
     });

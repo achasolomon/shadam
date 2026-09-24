@@ -10,10 +10,6 @@ export class CreateUserDto {
   @IsEmail()
   email!: string;
 
-  @ApiProperty()
-  @IsString()
-  passwordHash!: string;
-
   @ApiPropertyOptional()
   @IsString()
   @IsOptional()

@@ -1,15 +1,18 @@
 import type { Metadata } from 'next';
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
+import { Inter, DM_Serif_Display } from 'next/font/google';
 import './globals.css';
+import { DonationModalProvider } from '@/components/public/donation-modal';
+import { RegistrationModalProvider } from '@/components/public/registration-modal';
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
 });
 
-const plusJakarta = Plus_Jakarta_Sans({
+const dmSerif = DM_Serif_Display({
+  weight: '400',
   subsets: ['latin'],
-  variable: '--font-plus-jakarta',
+  variable: '--font-dm-serif',
 });
 
 export const metadata: Metadata = {
@@ -33,9 +36,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakarta.variable}`}>
+    <html lang="en" className={`${inter.variable} ${dmSerif.variable}`}>
       <body className="min-h-screen bg-surface font-sans antialiased">
-        {children}
+        <DonationModalProvider>
+          <RegistrationModalProvider>
+            {children}
+          </RegistrationModalProvider>
+        </DonationModalProvider>
       </body>
     </html>
   );

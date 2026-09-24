@@ -8,7 +8,8 @@ export class EventsService {
   constructor(private prisma: PrismaService) {}
 
   async findAllPublic(params?: { page?: number; limit?: number }) {
-    const { page = 1, limit = 10 } = params || {};
+    const page = Number(params?.page) || 1;
+    const limit = Number(params?.limit) || 10;
     const skip = (page - 1) * limit;
 
     const where = { status: 'PUBLISHED' as const, deletedAt: null };
@@ -37,14 +38,28 @@ export class EventsService {
   }
 
   async getFeatured() {
-    return this.prisma.event.findFirst({
-      where: { isFeatured: true, status: 'PUBLISHED', deletedAt: null },
+    const now = new Date();
+    const upcoming = await this.prisma.event.findFirst({
+      where: {
+        status: 'PUBLISHED',
+        deletedAt: null,
+        startAt: { gte: now },
+      },
       include: { coverMedia: true },
+      orderBy: { startAt: 'asc' },
+    });
+    if (upcoming) return upcoming;
+    return this.prisma.event.findFirst({
+      where: { status: 'PUBLISHED', deletedAt: null },
+      include: { coverMedia: true },
+      orderBy: { startAt: 'desc' },
     });
   }
 
   async findAllAdmin(params?: { page?: number; limit?: number; status?: string }) {
-    const { page = 1, limit = 10, status } = params || {};
+    const page = Number(params?.page) || 1;
+    const limit = Number(params?.limit) || 10;
+    const { status } = params || {};
     const skip = (page - 1) * limit;
 
     const where: any = { deletedAt: null };
@@ -66,15 +81,30 @@ export class EventsService {
 
   async create(dto: CreateEventDto, authorId: string) {
     const slug = await this.generateSlug(dto.title);
+    const { coverMediaId, ...rest } = dto;
     return this.prisma.event.create({
-      data: { ...dto, slug, authorId, body: dto.body || {} },
+      data: {
+        ...rest,
+        slug,
+        authorId,
+        body: dto.body || {},
+        ...(coverMediaId !== undefined && { coverMediaId }),
+      },
       include: { coverMedia: true },
     });
   }
 
   async update(id: string, dto: UpdateEventDto) {
     await this.findById(id);
-    return this.prisma.event.update({ where: { id }, data: dto, include: { coverMedia: true } });
+    const { coverMediaId, ...rest } = dto;
+    return this.prisma.event.update({
+      where: { id },
+      data: {
+        ...rest,
+        ...(coverMediaId !== undefined && { coverMediaId }),
+      },
+      include: { coverMedia: true },
+    });
   }
 
   async publish(id: string) {

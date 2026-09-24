@@ -1,4 +1,4 @@
-import { IsString, IsEmail, IsOptional, IsEnum } from 'class-validator';
+import { IsEmail, IsIn, IsOptional, IsString, MinLength } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class CreateEnquiryDto {
@@ -16,7 +16,7 @@ export class CreateEnquiryDto {
   phone?: string;
 
   @ApiPropertyOptional({ enum: ['general', 'support', 'partnership', 'volunteer', 'media', 'other'] })
-  @IsEnum(['general', 'support', 'partnership', 'volunteer', 'media', 'other'] as const)
+  @IsString()
   @IsOptional()
   type?: string;
 
@@ -28,4 +28,20 @@ export class CreateEnquiryDto {
   @ApiProperty()
   @IsString()
   message!: string;
+}
+
+export class ReplyEnquiryDto {
+  @ApiProperty({ enum: ['EMAIL', 'SMS'] })
+  @IsIn(['EMAIL', 'SMS'])
+  channel!: 'EMAIL' | 'SMS';
+
+  @ApiProperty()
+  @IsString()
+  @MinLength(1)
+  message!: string;
+
+  @ApiPropertyOptional()
+  @IsString()
+  @IsOptional()
+  subject?: string;
 }

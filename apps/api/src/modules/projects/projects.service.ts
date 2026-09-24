@@ -8,7 +8,9 @@ export class ProjectsService {
   constructor(private prisma: PrismaService) {}
 
   async findAllPublic(params?: { page?: number; limit?: number; category?: string }) {
-    const { page = 1, limit = 10, category } = params || {};
+    const page = Number(params?.page) || 1;
+    const limit = Number(params?.limit) || 10;
+    const { category } = params || {};
     const skip = (page - 1) * limit;
 
     const where: any = { status: 'PUBLISHED', deletedAt: null };
@@ -41,7 +43,9 @@ export class ProjectsService {
   }
 
   async findAllAdmin(params?: { page?: number; limit?: number; status?: string }) {
-    const { page = 1, limit = 10, status } = params || {};
+    const page = Number(params?.page) || 1;
+    const limit = Number(params?.limit) || 10;
+    const { status } = params || {};
     const skip = (page - 1) * limit;
 
     const where: any = { deletedAt: null };
@@ -75,12 +79,14 @@ export class ProjectsService {
 
   async create(dto: CreateProjectDto, authorId: string) {
     const slug = await this.generateSlug(dto.title);
+    const { coverMediaId, ...rest } = dto;
     return this.prisma.project.create({
       data: {
-        ...dto,
+        ...rest,
         slug,
         authorId,
         body: dto.body || {},
+        ...(coverMediaId !== undefined && { coverMediaId }),
       },
       include: { coverMedia: true },
     });
@@ -88,9 +94,13 @@ export class ProjectsService {
 
   async update(id: string, dto: UpdateProjectDto) {
     await this.findById(id);
+    const { coverMediaId, ...rest } = dto;
     return this.prisma.project.update({
       where: { id },
-      data: dto,
+      data: {
+        ...rest,
+        ...(coverMediaId !== undefined && { coverMediaId }),
+      },
       include: { coverMedia: true },
     });
   }

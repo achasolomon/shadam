@@ -1,49 +1,113 @@
+'use client';
+
 import Link from 'next/link';
-import { ArrowRight, Target, Eye, Users } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, Target, Eye, Heart } from 'lucide-react';
+import { ScrollReveal } from '@/components/public/scroll-reveal';
+import { useSettingsMap } from '@/hooks/use-api';
+
+const defaultValues = ['Compassion', 'Inclusion', 'Integrity', 'Collaboration', 'Impact'];
 
 export function AboutPreview() {
+  const { get, getJSON } = useSettingsMap();
+  const eyebrow = get('about_eyebrow', 'About SHEDAM');
+  const title = get('about_title', 'Who We Are');
+  const description = get(
+    'about_description',
+    'SHEDAM Mental Health Initiative (SMHI) is a community-driven organization focused on promoting mental well-being, breaking the stigma around mental health, and connecting people to professional help and support services.'
+  );
+  const mission = get(
+    'about_mission',
+    'To create awareness, reduce stigma and ensure access to professional mental health support for all.'
+  );
+  const vision = get(
+    'about_vision',
+    'A society where mental health is valued, understood and supported for everyone.'
+  );
+  const storyCta = get('about_story_cta', 'Our Story');
+  const missionLabel = get('about_mission_label', 'Our Mission');
+  const visionLabel = get('about_vision_label', 'Our Vision');
+  const valuesLabel = get('about_values_label', 'Our Values');
+
+  const rawValues = getJSON<{ name: string }[]>('about_values', []);
+  const valueNames = rawValues.length > 0 ? rawValues.map((v) => v.name).filter(Boolean).slice(0, 5) : defaultValues;
+
   return (
-    <section className="py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">About SHEDAM</p>
-            <h2 className="mt-2 font-heading text-3xl font-bold text-dark lg:text-4xl">Who We Are</h2>
-            <p className="mt-4 text-text-secondary">
-              SHEDAM Mental Health Initiative (SMHI) is a community-driven organization focused on
-              promoting mental well-being, breaking the stigma around mental health, and connecting
-              people to professional help and support services.
-            </p>
-            <Link href="/about" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
-              Our Story <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-surface-alt">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <p className="text-sm text-text-muted">About Image</p>
+    <section className="py-12 lg:py-24 bg-white">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-20">
+        <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr_1fr] lg:items-center">
+          {/* Left: Text */}
+          <ScrollReveal animation="slide-left">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-primary">{eyebrow}</p>
+              <h2 className="mt-2 font-heading text-xl font-normal text-dark sm:text-2xl lg:text-3xl xl:text-4xl">{title}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-text-secondary">
+                {description}
+              </p>
+              <Link
+                href="/about"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all duration-300 hover:gap-3"
+              >
+                {storyCta} <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
-          </div>
-        </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          <div className="rounded-xl border border-border bg-white p-6">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10"><Target className="h-6 w-6 text-primary" /></div>
-            <h3 className="mt-4 font-heading text-lg font-semibold text-dark">Our Mission</h3>
-            <p className="mt-2 text-sm text-text-secondary">To create awareness, reduce stigma and ensure access to professional mental health support for all.</p>
-          </div>
-          <div className="rounded-xl border border-border bg-white p-6">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10"><Eye className="h-6 w-6 text-accent" /></div>
-            <h3 className="mt-4 font-heading text-lg font-semibold text-dark">Our Vision</h3>
-            <p className="mt-2 text-sm text-text-secondary">A society where mental health is valued, understood and supported for everyone.</p>
-          </div>
-          <div className="rounded-xl border border-border bg-white p-6">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-info/10"><Users className="h-6 w-6 text-info" /></div>
-            <h3 className="mt-4 font-heading text-lg font-semibold text-dark">Our Values</h3>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {['Compassion', 'Inclusion', 'Integrity', 'Collaboration', 'Impact'].map((v) => (
-                <span key={v} className="rounded-full bg-surface-alt px-3 py-1 text-xs font-medium text-text-secondary">{v}</span>
-              ))}
+          </ScrollReveal>
+
+          {/* Center: Image */}
+          <ScrollReveal animation="scale-in" delay={100}>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+              <Image
+                src="/images/banner/banner2.jpg"
+                alt="SHEDAM mental health counselling session"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
             </div>
-          </div>
+          </ScrollReveal>
+
+          {/* Right: Mission / Vision / Values */}
+          <ScrollReveal animation="slide-right" delay={200} stagger>
+            <div className="space-y-4 sm:space-y-5">
+              <div className="flex items-start gap-3 group">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 transition-all duration-300 group-hover:bg-primary group-hover:scale-110 sm:h-10 sm:w-10">
+                  <Target className="h-4 w-4 text-primary transition-colors group-hover:text-white sm:h-5 sm:w-5" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-sm text-dark sm:text-base">{missionLabel}</h3>
+                  <p className="mt-1 text-xs leading-relaxed text-text-secondary sm:text-sm">
+                    {mission}
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 group">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 transition-all duration-300 group-hover:bg-primary group-hover:scale-110 sm:h-10 sm:w-10">
+                  <Eye className="h-4 w-4 text-primary transition-colors group-hover:text-white sm:h-5 sm:w-5" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-sm text-dark sm:text-base">{visionLabel}</h3>
+                  <p className="mt-1 text-xs leading-relaxed text-text-secondary sm:text-sm">
+                    {vision}
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 group">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/10 transition-all duration-300 group-hover:bg-primary group-hover:scale-110 sm:h-10 sm:w-10">
+                  <Heart className="h-4 w-4 text-primary transition-colors group-hover:text-white sm:h-5 sm:w-5" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-sm text-dark sm:text-base">{valuesLabel}</h3>
+                  <div className="mt-1.5 flex flex-wrap gap-1.5">
+                    {valueNames.map((v) => (
+                      <span key={v} className="rounded-full bg-primary/5 px-2 py-0.5 text-[10px] text-text-secondary sm:px-2.5 sm:text-xs">
+                        {v}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

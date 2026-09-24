@@ -8,7 +8,9 @@ export class ArticlesService {
   constructor(private prisma: PrismaService) {}
 
   async findAllPublic(params?: { page?: number; limit?: number; category?: string }) {
-    const { page = 1, limit = 10, category } = params || {};
+    const page = Number(params?.page) || 1;
+    const limit = Number(params?.limit) || 10;
+    const { category } = params || {};
     const skip = (page - 1) * limit;
     const where: any = { status: 'PUBLISHED', deletedAt: null };
     if (category) where.category = category;
@@ -34,7 +36,9 @@ export class ArticlesService {
   }
 
   async findAllAdmin(params?: { page?: number; limit?: number; status?: string }) {
-    const { page = 1, limit = 10, status } = params || {};
+    const page = Number(params?.page) || 1;
+    const limit = Number(params?.limit) || 10;
+    const { status } = params || {};
     const skip = (page - 1) * limit;
     const where: any = { deletedAt: null };
     if (status) where.status = status;
@@ -54,21 +58,33 @@ export class ArticlesService {
 
   async create(dto: CreateArticleDto, authorId: string) {
     const slug = await this.generateSlug(dto.title);
-    const { tags, ...data } = dto;
+    const { tags, coverMediaId, ...data } = dto;
     return this.prisma.article.create({
-      data: { ...data, slug, authorId, body: dto.body || {}, tags: tags ? { create: tags.map(t => ({ tag: t })) } : undefined },
+      data: {
+        ...data,
+        slug,
+        authorId,
+        body: dto.body || {},
+        ...(coverMediaId !== undefined && { coverMediaId }),
+        tags: tags ? { create: tags.map((t) => ({ tag: t })) } : undefined,
+      },
       include: { tags: true },
     });
   }
 
   async update(id: string, dto: UpdateArticleDto) {
     await this.findById(id);
-    const { tags, ...data } = dto;
+    const { tags, coverMediaId, ...data } = dto;
     if (tags) {
       await this.prisma.articleTag.deleteMany({ where: { articleId: id } });
     }
     return this.prisma.article.update({
-      where: { id }, data: { ...data, tags: tags ? { create: tags.map(t => ({ tag: t })) } : undefined },
+      where: { id },
+      data: {
+        ...data,
+        ...(coverMediaId !== undefined && { coverMediaId }),
+        tags: tags ? { create: tags.map((t) => ({ tag: t })) } : undefined,
+      },
       include: { tags: true },
     });
   }
