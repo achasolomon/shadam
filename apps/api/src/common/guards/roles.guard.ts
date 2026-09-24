@@ -1,6 +1,8 @@
 import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { ROLES_KEY } from '../decorators/roles.decorator';
+import { PERMISSIONS_KEY } from '../decorators/permissions.decorator';
+import { isSuperAdminRole, hasPermission } from '../roles';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
@@ -11,8 +13,12 @@ export class RolesGuard implements CanActivate {
       context.getHandler(),
       context.getClass(),
     ]);
+    const requiredPermissions = this.reflector.getAllAndOverride<string[]>(PERMISSIONS_KEY, [
+      context.getHandler(),
+      context.getClass(),
+    ]);
 
-    if (!requiredRoles || requiredRoles.length === 0) {
+    if ((!requiredRoles || requiredRoles.length === 0) && (!requiredPermissions || requiredPermissions.length === 0)) {
       return true;
     }
 
@@ -22,11 +28,18 @@ export class RolesGuard implements CanActivate {
       return false;
     }
 
-    // Super admin has access to everything
-    if (user.role?.name === 'Super Admin') {
+    if (isSuperAdminRole(user.role)) {
       return true;
     }
 
-    return requiredRoles.some((role) => user.role?.name === role);
+    if (requiredRoles?.length && requiredRoles.some((role) => user.role?.name === role)) {
+      return true;
+    }
+
+    if (requiredPermissions?.length) {
+      return requiredPermissions.some((permission) => hasPermission(user.role, permission));
+    }
+
+    return false;
   }
 }

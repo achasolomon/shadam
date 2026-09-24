@@ -7,6 +7,9 @@ import { UpdateProfileDto } from './dto/update-profile.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
 import { AcceptInviteDto } from './dto/accept-invite.dto';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
+import { RolesGuard } from '../../common/guards/roles.guard';
+import { Roles } from '../../common/decorators/roles.decorator';
+import { Public } from '../../common/decorators/public.decorator';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 import { SkipTransform } from '../../common/decorators/skip-transform.decorator';
 
@@ -17,13 +20,17 @@ export class AuthController {
 
   @Post('register')
   @SkipTransform()
-  @ApiOperation({ summary: 'Register a new user' })
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles('Super Admin')
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Register a new user (Super Admin only)' })
   async register(@Body() dto: RegisterDto) {
     return this.authService.register(dto);
   }
 
   @Post('login')
   @SkipTransform()
+  @Public()
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Login user' })
   async login(@Body() dto: LoginDto) {
@@ -60,6 +67,7 @@ export class AuthController {
 
   @Get('invite/:token')
   @SkipTransform()
+  @Public()
   @ApiOperation({ summary: 'Preview invitation for a token' })
   async getInvite(@Param('token') token: string) {
     const user = await this.authService.getInvite(token);
@@ -73,6 +81,7 @@ export class AuthController {
 
   @Post('invite/accept')
   @SkipTransform()
+  @Public()
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Accept invitation and set password' })
   async acceptInvite(@Body() dto: AcceptInviteDto) {
@@ -82,6 +91,7 @@ export class AuthController {
 
   @Post('logout')
   @SkipTransform()
+  @Public()
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Logout user' })
   async logout() {

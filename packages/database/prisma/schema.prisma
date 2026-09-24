@@ -7,16 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum UserRole {
-  SUPER_ADMIN
-  CONTENT_MANAGER
-  MEDIA_MANAGER
-  EDITOR
-  EVENTS_MANAGER
-  SUPPORT_OFFICER
-  READ_ONLY
-}
-
 enum UserStatus {
   ACTIVE
   INACTIVE

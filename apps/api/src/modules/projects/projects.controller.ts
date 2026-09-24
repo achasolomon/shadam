@@ -6,6 +6,8 @@ import { UpdateProjectDto } from './dto/update-project.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
+import { Permissions } from '../../common/decorators/permissions.decorator';
+import { Public } from '../../common/decorators/public.decorator';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 
 @ApiTags('Projects')
@@ -15,6 +17,7 @@ export class ProjectsController {
 
   // Public endpoints
   @Get('projects')
+  @Public()
   @ApiOperation({ summary: 'List published projects' })
   findAllPublic(
     @Query('page') page?: number,
@@ -25,6 +28,7 @@ export class ProjectsController {
   }
 
   @Get('projects/:slug')
+  @Public()
   @ApiOperation({ summary: 'Get project by slug' })
   findBySlug(@Param('slug') slug: string) {
     return this.projectsService.findBySlugPublic(slug);
@@ -33,7 +37,8 @@ export class ProjectsController {
   // Admin endpoints
   @Get('admin/projects')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Content Manager')
+  @Roles('Super Admin', 'Content Manager', 'Read Only')
+  @Permissions('read')
   @ApiBearerAuth()
   @ApiOperation({ summary: 'List all projects (admin)' })
   findAllAdmin(
@@ -46,7 +51,8 @@ export class ProjectsController {
 
   @Get('admin/projects/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Content Manager')
+  @Roles('Super Admin', 'Content Manager', 'Read Only')
+  @Permissions('read')
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Get project by ID (admin)' })
   findById(@Param('id') id: string) {
@@ -56,6 +62,7 @@ export class ProjectsController {
   @Post('admin/projects')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('projects')
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Create project' })
   create(@Body() dto: CreateProjectDto, @CurrentUser() user: any) {
@@ -65,6 +72,7 @@ export class ProjectsController {
   @Patch('admin/projects/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('projects')
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Update project' })
   update(@Param('id') id: string, @Body() dto: UpdateProjectDto) {
@@ -74,6 +82,7 @@ export class ProjectsController {
   @Post('admin/projects/:id/publish')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager', 'Editor')
+  @Permissions('publish')
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Publish project' })
   publish(@Param('id') id: string) {
@@ -83,6 +92,7 @@ export class ProjectsController {
   @Post('admin/projects/:id/archive')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('projects')
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Archive project' })
   archive(@Param('id') id: string) {
@@ -92,6 +102,7 @@ export class ProjectsController {
   @Delete('admin/projects/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('projects')
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Delete project' })
   remove(@Param('id') id: string) {

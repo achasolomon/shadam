@@ -29,8 +29,7 @@ export class UsersController {
   constructor(private usersService: UsersService) {}
 
   @Get('roles')
-  @ApiOperation({ summary: 'List all roles' })
-  @Roles('Super Admin', 'Content Manager', 'Editor', 'Events Manager', 'Support Officer', 'Media Manager')
+  @ApiOperation({ summary: 'List all roles (id/name only)' })
   getRoles() {
     return this.usersService.getRoles();
   }

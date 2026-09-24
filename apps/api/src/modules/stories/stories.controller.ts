@@ -4,6 +4,8 @@ import { StoriesService } from './stories.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
+import { Permissions } from '../../common/decorators/permissions.decorator';
+import { Public } from '../../common/decorators/public.decorator';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 
 @ApiTags('Stories')
@@ -12,12 +14,14 @@ export class StoriesController {
   constructor(private storiesService: StoriesService) {}
 
   @Get('stories')
+  @Public()
   @ApiOperation({ summary: 'List published stories' })
   findAllPublic(@Query('page') page?: number, @Query('limit') limit?: number) {
     return this.storiesService.findAllPublic({ page, limit });
   }
 
   @Get('stories/:slug')
+  @Public()
   @ApiOperation({ summary: 'Get story by slug' })
   findBySlug(@Param('slug') slug: string) {
     return this.storiesService.findBySlugPublic(slug);
@@ -25,7 +29,8 @@ export class StoriesController {
 
   @Get('admin/stories')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Content Manager', 'Editor')
+  @Roles('Super Admin', 'Content Manager', 'Editor', 'Read Only')
+  @Permissions('read')
   @ApiBearerAuth()
   findAllAdmin(@Query('page') page?: number, @Query('limit') limit?: number, @Query('status') status?: string) {
     return this.storiesService.findAllAdmin({ page, limit, status });
@@ -33,7 +38,8 @@ export class StoriesController {
 
   @Get('admin/stories/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Content Manager', 'Editor')
+  @Roles('Super Admin', 'Content Manager', 'Editor', 'Read Only')
+  @Permissions('read')
   @ApiBearerAuth()
   findById(@Param('id') id: string) {
     return this.storiesService.findById(id);
@@ -42,6 +48,7 @@ export class StoriesController {
   @Post('admin/stories')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('stories')
   @ApiBearerAuth()
   create(@Body() dto: any, @CurrentUser() user: any) {
     return this.storiesService.create(dto, user.sub);
@@ -50,6 +57,7 @@ export class StoriesController {
   @Patch('admin/stories/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('stories')
   @ApiBearerAuth()
   update(@Param('id') id: string, @Body() dto: any) {
     return this.storiesService.update(id, dto);
@@ -58,6 +66,7 @@ export class StoriesController {
   @Post('admin/stories/:id/publish')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager', 'Editor')
+  @Permissions('publish')
   @ApiBearerAuth()
   publish(@Param('id') id: string) {
     return this.storiesService.publish(id);
@@ -66,6 +75,7 @@ export class StoriesController {
   @Delete('admin/stories/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('stories')
   @ApiBearerAuth()
   remove(@Param('id') id: string) {
     return this.storiesService.remove(id);

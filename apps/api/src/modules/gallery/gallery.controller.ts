@@ -4,6 +4,8 @@ import { GalleryService } from './gallery.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
+import { Permissions } from '../../common/decorators/permissions.decorator';
+import { Public } from '../../common/decorators/public.decorator';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 
 @ApiTags('Gallery')
@@ -12,14 +14,17 @@ export class GalleryController {
   constructor(private galleryService: GalleryService) {}
 
   @Get('gallery/albums')
+  @Public()
   findAllPublic() { return this.galleryService.findAllPublic(); }
 
   @Get('gallery/albums/:slug')
+  @Public()
   findBySlug(@Param('slug') slug: string) { return this.galleryService.findBySlugPublic(slug); }
 
   @Get('admin/gallery')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Media Manager')
+  @Roles('Super Admin', 'Media Manager', 'Read Only')
+  @Permissions('read')
   @ApiBearerAuth()
   findAllAdmin(@Query('page') page?: number, @Query('limit') limit?: number, @Query('status') status?: string) {
     return this.galleryService.findAllAdmin({ page, limit, status });
@@ -27,13 +32,15 @@ export class GalleryController {
 
   @Get('admin/gallery/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Media Manager')
+  @Roles('Super Admin', 'Media Manager', 'Read Only')
+  @Permissions('read')
   @ApiBearerAuth()
   findById(@Param('id') id: string) { return this.galleryService.findById(id); }
 
   @Post('admin/gallery')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Media Manager')
+  @Permissions('gallery')
   @ApiBearerAuth()
   create(@Body() body: { title: string; description?: string }, @CurrentUser() user: any) {
     return this.galleryService.create({ ...body, authorId: user.sub });
@@ -42,24 +49,28 @@ export class GalleryController {
   @Patch('admin/gallery/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Media Manager')
+  @Permissions('gallery')
   @ApiBearerAuth()
   update(@Param('id') id: string, @Body() body: any) { return this.galleryService.update(id, body); }
 
   @Post('admin/gallery/:id/publish')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Media Manager')
+  @Permissions('publish')
   @ApiBearerAuth()
   publish(@Param('id') id: string) { return this.galleryService.publish(id); }
 
   @Delete('admin/gallery/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Media Manager')
+  @Permissions('gallery')
   @ApiBearerAuth()
   remove(@Param('id') id: string) { return this.galleryService.remove(id); }
 
   @Post('admin/gallery/:id/items')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Media Manager')
+  @Permissions('gallery')
   @ApiBearerAuth()
   addItem(@Param('id') id: string, @Body() body: { mediaId: string; sortOrder?: number }) {
     return this.galleryService.addItem(id, body.mediaId, body.sortOrder);
@@ -68,12 +79,14 @@ export class GalleryController {
   @Delete('admin/gallery/items/:itemId')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Media Manager')
+  @Permissions('gallery')
   @ApiBearerAuth()
   removeItem(@Param('itemId') itemId: string) { return this.galleryService.removeItem(itemId); }
 
   @Post('admin/gallery/:id/reorder')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Media Manager')
+  @Permissions('gallery')
   @ApiBearerAuth()
   reorder(@Param('id') id: string, @Body() body: { orderedIds: string[] }) {
     return this.galleryService.reorderItems(id, body.orderedIds);

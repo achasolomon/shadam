@@ -28,11 +28,28 @@ import {
   Mail,
   UserCircle,
 } from 'lucide-react';
+import { ROLE_NAMES } from '@/lib/access';
+
+const SA = ROLE_NAMES.SUPER_ADMIN;
+const CM = ROLE_NAMES.CONTENT_MANAGER;
+const MM = ROLE_NAMES.MEDIA_MANAGER;
+const ED = ROLE_NAMES.EDITOR;
+const EM = ROLE_NAMES.EVENTS_MANAGER;
+const SO = ROLE_NAMES.SUPPORT_OFFICER;
+const RO = ROLE_NAMES.READ_ONLY;
+
+const contentRoles = [SA, CM, ED, RO];
+const eventsRoles = [SA, CM, EM, ED, RO];
+const mediaRoles = [SA, CM, MM, RO];
+const supportRoles = [SA, SO, RO];
+const newsletterRoles = [SA, CM, SO, RO];
 
 export interface NavItem {
   label: string;
   href: string;
   icon: React.ElementType;
+  roles?: string[];
+  permissions?: string[];
 }
 
 export interface NavSection {
@@ -47,37 +64,53 @@ export const adminNav: NavSection[] = [
   {
     title: 'Content',
     items: [
-      { label: 'Projects', href: '/admin/dashboard/projects', icon: FileText },
-      { label: 'Events', href: '/admin/dashboard/events', icon: Calendar },
-      { label: 'Articles', href: '/admin/dashboard/articles', icon: Newspaper },
-      { label: 'Stories', href: '/admin/dashboard/stories', icon: Quote },
-      { label: 'Resources', href: '/admin/dashboard/resources', icon: BookOpen },
-      { label: 'Partners', href: '/admin/dashboard/partners', icon: HeartHandshake },
-      { label: 'Gallery', href: '/admin/dashboard/gallery', icon: Camera },
-      { label: 'Media Library', href: '/admin/dashboard/media', icon: Image },
+      { label: 'Projects', href: '/admin/dashboard/projects', icon: FileText, roles: contentRoles, permissions: ['projects', 'read'] },
+      { label: 'Events', href: '/admin/dashboard/events', icon: Calendar, roles: eventsRoles, permissions: ['events', 'read'] },
+      { label: 'Articles', href: '/admin/dashboard/articles', icon: Newspaper, roles: contentRoles, permissions: ['articles', 'read'] },
+      { label: 'Stories', href: '/admin/dashboard/stories', icon: Quote, roles: contentRoles, permissions: ['stories', 'read'] },
+      { label: 'Resources', href: '/admin/dashboard/resources', icon: BookOpen, roles: contentRoles, permissions: ['resources', 'read'] },
+      { label: 'Partners', href: '/admin/dashboard/partners', icon: HeartHandshake, roles: contentRoles, permissions: ['partners', 'read'] },
+      { label: 'Gallery', href: '/admin/dashboard/gallery', icon: Camera, roles: mediaRoles, permissions: ['gallery', 'read'] },
+      { label: 'Media Library', href: '/admin/dashboard/media', icon: Image, roles: mediaRoles, permissions: ['media', 'read'] },
     ],
   },
   {
     title: 'People',
     items: [
-      { label: 'Team', href: '/admin/dashboard/team', icon: Users },
-      { label: 'Users', href: '/admin/dashboard/users', icon: UserCircle },
-      { label: 'Enquiries', href: '/admin/dashboard/enquiries', icon: MessageSquare },
-      { label: 'Newsletter', href: '/admin/dashboard/newsletter', icon: Mail },
+      { label: 'Team', href: '/admin/dashboard/team', icon: Users, roles: contentRoles, permissions: ['pages', 'read'] },
+      { label: 'Users', href: '/admin/dashboard/users', icon: UserCircle, roles: [SA] },
+      { label: 'Enquiries', href: '/admin/dashboard/enquiries', icon: MessageSquare, roles: supportRoles, permissions: ['enquiries', 'read'] },
+      { label: 'Newsletter', href: '/admin/dashboard/newsletter', icon: Mail, roles: newsletterRoles, permissions: ['read'] },
     ],
   },
   {
     title: 'Site',
-    items: [{ label: 'Homepage Layout', href: '/admin/dashboard/homepage', icon: Layout }],
+    items: [
+      { label: 'Homepage Layout', href: '/admin/dashboard/homepage', icon: Layout, roles: contentRoles, permissions: ['pages', 'read'] },
+    ],
   },
   {
     title: 'Settings',
     items: [
-      { label: 'All Settings', href: '/admin/settings', icon: Settings },
+      { label: 'All Settings', href: '/admin/settings', icon: Settings, roles: [SA] },
       { label: 'My Profile', href: '/admin/profile', icon: UserCircle },
     ],
   },
 ];
+
+export function filterNavForUser<T extends NavItem>(items: T[], user: { role?: { name?: string; permissions?: Record<string, unknown> } } | null): T[] {
+  if (!user) return [];
+  if (user.role?.name === SA || user.role?.permissions?.['*'] === '*') return items;
+  return items.filter((item) => {
+    if (!item.roles?.length && !item.permissions?.length) return true;
+    if (item.roles?.includes(user.role?.name || '')) return true;
+    if (item.permissions?.length) {
+      const perms = user.role?.permissions || {};
+      if (item.permissions.some((p) => perms[p] !== undefined || perms['*'] === '*')) return true;
+    }
+    return false;
+  });
+}
 
 export interface SettingsGroupMeta {
   slug: string;

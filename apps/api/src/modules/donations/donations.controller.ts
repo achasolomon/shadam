@@ -4,6 +4,7 @@ import { DonationsService } from './donations.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
+import { Public } from '../../common/decorators/public.decorator';
 
 @ApiTags('Donations')
 @Controller()
@@ -11,6 +12,7 @@ export class DonationsController {
   constructor(private donationsService: DonationsService) {}
 
   @Post('donations')
+  @Public()
   @ApiOperation({ summary: 'Submit a donation pledge' })
   create(@Body() dto: any) {
     return this.donationsService.create(dto);
@@ -18,7 +20,7 @@ export class DonationsController {
 
   @Get('admin/donations')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Support Officer')
+  @Roles('Super Admin', 'Support Officer', 'Read Only')
   @ApiBearerAuth()
   findAll(@Query('page') page?: number, @Query('limit') limit?: number, @Query('status') status?: string) {
     return this.donationsService.findAll({ page, limit, status });
@@ -26,7 +28,7 @@ export class DonationsController {
 
   @Get('admin/donations/stats')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Support Officer')
+  @Roles('Super Admin', 'Support Officer', 'Read Only')
   @ApiBearerAuth()
   stats() {
     return this.donationsService.getStats();

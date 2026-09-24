@@ -144,7 +144,11 @@ export class UsersService {
   }
 
   async getRoles() {
-    return this.prisma.role.findMany({ orderBy: { name: 'asc' } });
+    const roles = await this.prisma.role.findMany({
+      orderBy: { name: 'asc' },
+      select: { id: true, name: true, description: true },
+    });
+    return roles;
   }
 
   async findAll(params?: { page?: number; limit?: number; search?: string }) {

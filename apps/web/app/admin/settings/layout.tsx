@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Search, X, ChevronRight, Command } from 'lucide-react';
 import { settingsGroups, settingsGroupBySlug } from '@/lib/admin-nav';
 import { labelFor } from '@/components/admin/settings/settings-config';
+import { SuperAdminOnly } from '@/components/admin/access';
 import {
   SettingsProvider,
   useSettingsStore,
@@ -336,8 +337,10 @@ function SettingsShell({ children }: { children: React.ReactNode }) {
 
 export default function SettingsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <SettingsProvider>
-      <SettingsShell>{children}</SettingsShell>
-    </SettingsProvider>
+    <SuperAdminOnly>
+      <SettingsProvider>
+        <SettingsShell>{children}</SettingsShell>
+      </SettingsProvider>
+    </SuperAdminOnly>
   );
 }

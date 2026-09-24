@@ -4,6 +4,8 @@ import { PagesService } from './pages.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
+import { Permissions } from '../../common/decorators/permissions.decorator';
+import { Public } from '../../common/decorators/public.decorator';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 
 @ApiTags('Pages')
@@ -12,23 +14,27 @@ export class PagesController {
   constructor(private pagesService: PagesService) {}
 
   @Get('pages/:slug')
+  @Public()
   findBySlug(@Param('slug') slug: string) { return this.pagesService.findBySlugPublic(slug); }
 
   @Get('admin/pages')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Content Manager')
+  @Roles('Super Admin', 'Content Manager', 'Read Only')
+  @Permissions('read')
   @ApiBearerAuth()
   findAllAdmin() { return this.pagesService.findAllAdmin(); }
 
   @Get('admin/pages/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Content Manager')
+  @Roles('Super Admin', 'Content Manager', 'Read Only')
+  @Permissions('read')
   @ApiBearerAuth()
   findById(@Param('id') id: string) { return this.pagesService.findById(id); }
 
   @Post('admin/pages')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('pages')
   @ApiBearerAuth()
   create(@Body() body: { title: string; body?: any }, @CurrentUser() user: any) {
     return this.pagesService.create({ ...body, authorId: user.sub });
@@ -37,12 +43,14 @@ export class PagesController {
   @Patch('admin/pages/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('pages')
   @ApiBearerAuth()
   update(@Param('id') id: string, @Body() body: any) { return this.pagesService.update(id, body); }
 
   @Delete('admin/pages/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('pages')
   @ApiBearerAuth()
   remove(@Param('id') id: string) { return this.pagesService.remove(id); }
 }

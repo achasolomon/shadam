@@ -4,6 +4,7 @@ import { PrismaService } from '../../prisma/prisma.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
+import { Permissions } from '../../common/decorators/permissions.decorator';
 
 @ApiTags('Dashboard')
 @Controller('admin/dashboard')
@@ -13,7 +14,8 @@ export class DashboardController {
   constructor(private prisma: PrismaService) {}
 
   @Get('stats')
-  @Roles('Super Admin', 'Content Manager', 'Events Manager', 'Support Officer', 'Editor')
+  @Roles('Super Admin', 'Content Manager', 'Events Manager', 'Support Officer', 'Editor', 'Media Manager', 'Read Only')
+  @Permissions('read')
   @ApiOperation({ summary: 'Get dashboard stats' })
   async getStats() {
     const [

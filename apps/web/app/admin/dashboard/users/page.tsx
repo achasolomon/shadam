@@ -4,6 +4,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Plus, Search, Loader2, Edit3, Ban, X, UserCircle, Mail } from 'lucide-react';
 import { adminApi, resolveMediaUrl } from '@/lib/api';
 import { useAuth } from '@/components/admin/auth-provider';
+import { SuperAdminOnly } from '@/components/admin/access';
 
 interface User {
   id: string;
@@ -31,7 +32,7 @@ interface Role {
     status: 'INVITED',
   };
 
-export default function AdminUsersPage() {
+function AdminUsersPageInner() {
   const { user: me } = useAuth();
   const [users, setUsers] = useState<User[]>([]);
   const [roles, setRoles] = useState<Role[]>([]);
@@ -418,5 +419,13 @@ export default function AdminUsersPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function AdminUsersPage() {
+  return (
+    <SuperAdminOnly>
+      <AdminUsersPageInner />
+    </SuperAdminOnly>
   );
 }

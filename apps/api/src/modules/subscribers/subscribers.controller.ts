@@ -10,6 +10,8 @@ import {
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
+import { Permissions } from '../../common/decorators/permissions.decorator';
+import { Public } from '../../common/decorators/public.decorator';
 
 @ApiTags('Subscribers')
 @Controller()
@@ -17,12 +19,14 @@ export class SubscribersController {
   constructor(private subscribersService: SubscribersService) {}
 
   @Post('newsletter/subscribe')
+  @Public()
   @ApiOperation({ summary: 'Subscribe to newsletter' })
   subscribe(@Body() dto: SubscribeDto) {
     return this.subscribersService.subscribe(dto.email, 'website');
   }
 
   @Post('newsletter/unsubscribe')
+  @Public()
   @ApiOperation({ summary: 'Unsubscribe from newsletter' })
   unsubscribe(@Body() dto: UnsubscribeDto) {
     return this.subscribersService.unsubscribe(dto.email);
@@ -30,7 +34,8 @@ export class SubscribersController {
 
   @Get('admin/subscribers')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Content Manager', 'Support Officer')
+  @Roles('Super Admin', 'Content Manager', 'Support Officer', 'Read Only')
+  @Permissions('read')
   @ApiBearerAuth()
   @ApiOperation({ summary: 'List newsletter subscribers' })
   findAll() {

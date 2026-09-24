@@ -6,6 +6,8 @@ import { UpdateArticleDto } from './dto/update-article.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
+import { Permissions } from '../../common/decorators/permissions.decorator';
+import { Public } from '../../common/decorators/public.decorator';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 
 @ApiTags('Articles')
@@ -14,18 +16,21 @@ export class ArticlesController {
   constructor(private articlesService: ArticlesService) {}
 
   @Get('articles')
+  @Public()
   findAllPublic(@Query('page') page?: number, @Query('limit') limit?: number, @Query('category') category?: string) {
     return this.articlesService.findAllPublic({ page, limit, category });
   }
 
   @Get('articles/:slug')
+  @Public()
   findBySlug(@Param('slug') slug: string) {
     return this.articlesService.findBySlugPublic(slug);
   }
 
   @Get('admin/articles')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Content Manager', 'Editor')
+  @Roles('Super Admin', 'Content Manager', 'Editor', 'Read Only')
+  @Permissions('read')
   @ApiBearerAuth()
   findAllAdmin(@Query('page') page?: number, @Query('limit') limit?: number, @Query('status') status?: string) {
     return this.articlesService.findAllAdmin({ page, limit, status });
@@ -33,7 +38,8 @@ export class ArticlesController {
 
   @Get('admin/articles/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Content Manager', 'Editor')
+  @Roles('Super Admin', 'Content Manager', 'Editor', 'Read Only')
+  @Permissions('read')
   @ApiBearerAuth()
   findById(@Param('id') id: string) {
     return this.articlesService.findById(id);
@@ -42,6 +48,7 @@ export class ArticlesController {
   @Post('admin/articles')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('articles')
   @ApiBearerAuth()
   create(@Body() dto: CreateArticleDto, @CurrentUser() user: any) {
     return this.articlesService.create(dto, user.sub);
@@ -50,6 +57,7 @@ export class ArticlesController {
   @Patch('admin/articles/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('articles')
   @ApiBearerAuth()
   update(@Param('id') id: string, @Body() dto: UpdateArticleDto) {
     return this.articlesService.update(id, dto);
@@ -58,6 +66,7 @@ export class ArticlesController {
   @Post('admin/articles/:id/publish')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager', 'Editor')
+  @Permissions('publish')
   @ApiBearerAuth()
   publish(@Param('id') id: string) {
     return this.articlesService.publish(id);
@@ -66,6 +75,7 @@ export class ArticlesController {
   @Delete('admin/articles/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('articles')
   @ApiBearerAuth()
   remove(@Param('id') id: string) {
     return this.articlesService.remove(id);

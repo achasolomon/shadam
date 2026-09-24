@@ -4,6 +4,8 @@ import { TeamService } from './team.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
+import { Permissions } from '../../common/decorators/permissions.decorator';
+import { Public } from '../../common/decorators/public.decorator';
 
 @ApiTags('Team')
 @Controller()
@@ -11,50 +13,59 @@ export class TeamController {
   constructor(private teamService: TeamService) {}
 
   @Get('team')
+  @Public()
   findAllPublic() { return this.teamService.findAllPublic(); }
 
   @Get('team/:slug')
+  @Public()
   findBySlug(@Param('slug') slug: string) { return this.teamService.findBySlugPublic(slug); }
 
   @Get('admin/team')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Content Manager')
+  @Roles('Super Admin', 'Content Manager', 'Read Only')
+  @Permissions('read')
   @ApiBearerAuth()
   findAllAdmin() { return this.teamService.findAllAdmin(); }
 
   @Get('admin/team/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Content Manager')
+  @Roles('Super Admin', 'Content Manager', 'Read Only')
+  @Permissions('read')
   @ApiBearerAuth()
   findById(@Param('id') id: string) { return this.teamService.findById(id); }
 
   @Post('admin/team')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('pages')
   @ApiBearerAuth()
   create(@Body() body: any) { return this.teamService.create(body); }
 
   @Patch('admin/team/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('pages')
   @ApiBearerAuth()
   update(@Param('id') id: string, @Body() body: any) { return this.teamService.update(id, body); }
 
   @Delete('admin/team/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('pages')
   @ApiBearerAuth()
   remove(@Param('id') id: string) { return this.teamService.remove(id); }
 
   @Post('admin/team/:id/items')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('pages')
   @ApiBearerAuth()
   addItem(@Param('id') id: string, @Body() body: any) { return this.teamService.addItem(id, body); }
 
   @Patch('admin/team/items/:itemId')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('pages')
   @ApiBearerAuth()
   updateItem(@Param('itemId') itemId: string, @Body() body: any) {
     return this.teamService.updateItem(itemId, body);
@@ -63,6 +74,7 @@ export class TeamController {
   @Delete('admin/team/items/:itemId')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Content Manager')
+  @Permissions('pages')
   @ApiBearerAuth()
   removeItem(@Param('itemId') itemId: string) { return this.teamService.removeItem(itemId); }
 }

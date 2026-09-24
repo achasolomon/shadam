@@ -8,6 +8,7 @@ import { MediaService } from './media.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
+import { Permissions } from '../../common/decorators/permissions.decorator';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 
 export const UPLOADS_DIR = path.join(process.cwd(), 'uploads');
@@ -41,7 +42,8 @@ export class MediaController {
 
   @Get('admin/media')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Media Manager', 'Content Manager')
+  @Roles('Super Admin', 'Media Manager', 'Content Manager', 'Read Only')
+  @Permissions('read')
   @ApiBearerAuth()
   findAll(@Query('page') page?: number, @Query('limit') limit?: number, @Query('folder') folder?: string) {
     return this.mediaService.findAll({ page, limit, folder });
@@ -49,7 +51,8 @@ export class MediaController {
 
   @Get('admin/media/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles('Super Admin', 'Media Manager', 'Content Manager')
+  @Roles('Super Admin', 'Media Manager', 'Content Manager', 'Read Only')
+  @Permissions('read')
   @ApiBearerAuth()
   findById(@Param('id') id: string) {
     return this.mediaService.findById(id);
@@ -58,6 +61,7 @@ export class MediaController {
   @Post('admin/media/upload')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Media Manager', 'Content Manager')
+  @Permissions('media')
   @ApiBearerAuth()
   @UseInterceptors(FileInterceptor('file', { storage: uploadStorage, limits: { fileSize: 20 * 1024 * 1024 } }))
   @ApiConsumes('multipart/form-data')
@@ -79,6 +83,7 @@ export class MediaController {
   @Patch('admin/media/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Media Manager')
+  @Permissions('media')
   @ApiBearerAuth()
   update(@Param('id') id: string, @Body() body: { altText?: string; caption?: string; folder?: string }) {
     return this.mediaService.update(id, body);
@@ -87,6 +92,7 @@ export class MediaController {
   @Delete('admin/media/:id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles('Super Admin', 'Media Manager')
+  @Permissions('media')
   @ApiBearerAuth()
   remove(@Param('id') id: string) {
     return this.mediaService.remove(id);

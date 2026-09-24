@@ -4,6 +4,7 @@ import { SettingsService } from './settings.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
+import { Public } from '../../common/decorators/public.decorator';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 
 @ApiTags('Settings')
@@ -12,9 +13,11 @@ export class SettingsController {
   constructor(private settingsService: SettingsService) {}
 
   @Get('settings')
+  @Public()
   findAll() { return this.settingsService.findAll(); }
 
   @Get('settings/:group')
+  @Public()
   findByGroup(@Param('group') group: string) { return this.settingsService.findByGroup(group); }
 
   @Put('admin/settings/:key')

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { LogOut, Menu, X, UserCircle } from 'lucide-react';
 import { AuthProvider, useAuth } from '@/components/admin/auth-provider';
-import { adminNav } from '@/lib/admin-nav';
+import { adminNav, filterNavForUser } from '@/lib/admin-nav';
 import { resolveMediaUrl } from '@/lib/api';
 
 function isActive(pathname: string, href: string): boolean {
@@ -16,9 +16,14 @@ function isActive(pathname: string, href: string): boolean {
 
 function NavList({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
+  const { user } = useAuth();
+  const sections = adminNav
+    .map((section) => ({ ...section, items: filterNavForUser(section.items, user) }))
+    .filter((section) => section.items.length > 0);
+
   return (
     <nav className="flex-1 overflow-y-auto p-3">
-      {adminNav.map((section, si) => (
+      {sections.map((section, si) => (
         <div key={si} className={si > 0 ? 'mt-5' : ''}>
           {section.title && (
             <p className="mb-1.5 px-3 text-[10px] font-semibold uppercase tracking-wider text-gray-400">
