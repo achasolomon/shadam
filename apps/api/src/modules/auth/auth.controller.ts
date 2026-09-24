@@ -1,4 +1,5 @@
 import { Controller, Post, Patch, Body, Get, Param, UseGuards, HttpCode, HttpStatus } from '@nestjs/common';
+import { Throttle } from '@nestjs/throttler';
 import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
@@ -31,6 +32,7 @@ export class AuthController {
   @Post('login')
   @SkipTransform()
   @Public()
+  @Throttle({ default: { ttl: 60000, limit: 10 } })
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Login user' })
   async login(@Body() dto: LoginDto) {
@@ -82,6 +84,7 @@ export class AuthController {
   @Post('invite/accept')
   @SkipTransform()
   @Public()
+  @Throttle({ default: { ttl: 60000, limit: 10 } })
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: 'Accept invitation and set password' })
   async acceptInvite(@Body() dto: AcceptInviteDto) {

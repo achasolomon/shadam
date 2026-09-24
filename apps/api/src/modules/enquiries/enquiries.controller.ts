@@ -1,4 +1,5 @@
 import { Controller, Get, Post, Patch, Body, Param, Query, UseGuards } from '@nestjs/common';
+import { Throttle } from '@nestjs/throttler';
 import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
 import { EnquiriesService } from './enquiries.service';
 import { CreateEnquiryDto, ReplyEnquiryDto } from './dto/create-enquiry.dto';
@@ -15,6 +16,7 @@ export class EnquiriesController {
 
   @Post('enquiries')
   @Public()
+  @Throttle({ default: { ttl: 60000, limit: 10 } })
   @ApiOperation({ summary: 'Submit enquiry' })
   create(@Body() dto: CreateEnquiryDto) {
     return this.enquiriesService.create(dto);

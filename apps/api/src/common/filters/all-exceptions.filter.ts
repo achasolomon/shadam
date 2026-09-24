@@ -18,8 +18,8 @@ export class AllExceptionsFilter implements ExceptionFilter {
       const exResponse = exception.getResponse();
       message = typeof exResponse === 'string' ? exResponse : (exResponse as any).message || message;
     } else if (exception instanceof Error) {
-      message = exception.message;
       this.logger.error(`${request.method} ${request.url}: ${exception.message}`, exception.stack);
+      message = status >= 500 ? 'Internal server error' : exception.message;
     }
 
     response.status(status).json({

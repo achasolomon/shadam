@@ -1,44 +1,43 @@
 import { Controller, Get, Patch, Delete, Param, Query, UseGuards, Post, Body, UploadedFile, UseInterceptors, BadRequestException } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { diskStorage } from 'multer';
+import { memoryStorage } from 'multer';
 import { ApiTags, ApiOperation, ApiBearerAuth, ApiConsumes, ApiBody } from '@nestjs/swagger';
 import * as path from 'path';
-import * as fs from 'fs';
 import { MediaService } from './media.service';
+import { MediaStorageService } from './media-storage.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { Roles } from '../../common/decorators/roles.decorator';
 import { Permissions } from '../../common/decorators/permissions.decorator';
 import { CurrentUser } from '../../common/decorators/current-user.decorator';
 
-export const UPLOADS_DIR = path.join(process.cwd(), 'uploads');
+const ALLOWED_UPLOAD_TYPES: Record<string, string[]> = {
+  'image/jpeg': ['.jpg', '.jpeg'],
+  'image/png': ['.png'],
+  'image/gif': ['.gif'],
+  'image/webp': ['.webp'],
+  'video/mp4': ['.mp4'],
+  'video/webm': ['.webm'],
+  'application/pdf': ['.pdf'],
+};
 
-const uploadStorage = diskStorage({
-  destination: (_req, _file, cb) => {
-    try {
-      fs.mkdirSync(UPLOADS_DIR, { recursive: true });
-      cb(null, UPLOADS_DIR);
-    } catch (err) {
-      cb(err as Error, UPLOADS_DIR);
-    }
-  },
-  filename: (_req, file, cb) => {
-    const ext = path.extname(file.originalname).toLowerCase();
-    const base =
-      path
-        .basename(file.originalname, path.extname(file.originalname))
-        .replace(/[^a-zA-Z0-9-_]+/g, '-')
-        .replace(/-+/g, '-')
-        .replace(/^-|-$/g, '')
-        .slice(0, 80) || 'file';
-    cb(null, `${Date.now()}-${base}${ext}`);
-  },
-});
+const BLOCKED_UPLOAD_EXTENSIONS = new Set(['.html', '.htm', '.svg', '.xhtml', '.xml', '.js', '.mjs', '.php', '.phtml', '.sh', '.bat', '.cmd', '.exe', '.dll', '.scr', '.jsp', '.asp', '.aspx']);
+
+function isAllowedUpload(file: { originalname: string; mimetype: string }): boolean {
+  const ext = path.extname(file.originalname || '').toLowerCase();
+  if (!ext || BLOCKED_UPLOAD_EXTENSIONS.has(ext)) return false;
+  const allowedExts = ALLOWED_UPLOAD_TYPES[file.mimetype];
+  if (!allowedExts) return false;
+  return allowedExts.includes(ext);
+}
 
 @ApiTags('Media')
 @Controller()
 export class MediaController {
-  constructor(private mediaService: MediaService) {}
+  constructor(
+    private mediaService: MediaService,
+    private storage: MediaStorageService,
+  ) {}
 
   @Get('admin/media')
   @UseGuards(JwtAuthGuard, RolesGuard)
@@ -63,12 +62,37 @@ export class MediaController {
   @Roles('Super Admin', 'Media Manager', 'Content Manager')
   @Permissions('media')
   @ApiBearerAuth()
-  @UseInterceptors(FileInterceptor('file', { storage: uploadStorage, limits: { fileSize: 20 * 1024 * 1024 } }))
+  @UseInterceptors(
+    FileInterceptor('file', {
+      storage: memoryStorage(),
+      limits: { fileSize: 20 * 1024 * 1024 },
+      fileFilter: (_req, file, cb) => {
+        if (!isAllowedUpload(file)) {
+          cb(new BadRequestException('Unsupported file type'), false);
+          return;
+        }
+        cb(null, true);
+      },
+    }),
+  )
   @ApiConsumes('multipart/form-data')
-  upload(@UploadedFile() file: Express.Multer.File, @CurrentUser() user: any, @Body() body: { altText?: string; caption?: string; folder?: string }) {
-    if (!file) throw new BadRequestException('No file uploaded');
+  async upload(
+    @UploadedFile() file: Express.Multer.File,
+    @CurrentUser() user: any,
+    @Body() body: { altText?: string; caption?: string; folder?: string },
+  ) {
+    if (!file || !file.buffer) throw new BadRequestException('No file uploaded');
+    if (!isAllowedUpload(file)) throw new BadRequestException('Unsupported file type');
+
+    const stored = await this.storage.upload({
+      buffer: file.buffer,
+      originalname: file.originalname,
+      mimetype: file.mimetype,
+    });
+
     return this.mediaService.create({
-      url: `/uploads/${file.filename}`,
+      url: stored.url,
+      originalUrl: stored.publicId,
       fileName: file.originalname,
       mimeType: file.mimetype,
       type: file.mimetype.startsWith('image') ? 'IMAGE' : file.mimetype.startsWith('video') ? 'VIDEO' : 'DOCUMENT',

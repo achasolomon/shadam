@@ -63,14 +63,16 @@ async function main() {
   console.log('Roles seeded.');
 
   // ── Admin user ──
-  const adminPasswordHash = await bcrypt.hash('admin123', 12);
+  const adminPassword = process.env.SEED_ADMIN_PASSWORD;
   const admin = await prisma.user.upsert({
     where: { email: 'admin@shedam.org' },
-    update: { passwordHash: adminPasswordHash, roleId: 'role-super-admin', status: 'ACTIVE' },
+    update: adminPassword
+      ? { passwordHash: await bcrypt.hash(adminPassword, 12), roleId: 'role-super-admin', status: 'ACTIVE' }
+      : { roleId: 'role-super-admin', status: 'ACTIVE' },
     create: {
       name: 'SHEDAM Administrator',
       email: 'admin@shedam.org',
-      passwordHash: adminPasswordHash,
+      passwordHash: await bcrypt.hash(adminPassword || 'ChangeMe123!', 12),
       roleId: 'role-super-admin',
       status: 'ACTIVE',
     },

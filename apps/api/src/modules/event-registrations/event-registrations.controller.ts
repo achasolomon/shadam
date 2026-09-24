@@ -1,4 +1,5 @@
 import { Controller, Get, Post, Patch, Delete, Param, Body, Query, UseGuards } from '@nestjs/common';
+import { Throttle } from '@nestjs/throttler';
 import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
 import { EventRegistrationsService } from './event-registrations.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
@@ -14,6 +15,7 @@ export class EventRegistrationsController {
 
   @Post('event-registrations')
   @Public()
+  @Throttle({ default: { ttl: 60000, limit: 10 } })
   @ApiOperation({ summary: 'Register for an event' })
   create(@Body() dto: { eventId: string; name: string; email: string; phone?: string; ticketType?: string; notes?: string }) {
     return this.registrationsService.create(dto);

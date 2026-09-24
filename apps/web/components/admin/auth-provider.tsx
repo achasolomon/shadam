@@ -65,7 +65,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       // API returns { user, token } directly
       const token = data.token;
       const userData = data.user || data;
-      if (token) localStorage.setItem('smhi_token', token);
+      if (token) {
+        localStorage.setItem('smhi_token', token);
+        document.cookie = 'smhi_auth=1; path=/; max-age=604800; SameSite=Lax';
+      }
       setUser(userData);
       return true;
     } catch (err: any) {
@@ -78,6 +81,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const logout = useCallback(async () => {
     localStorage.removeItem('smhi_token');
+    document.cookie = 'smhi_auth=; path=/; max-age=0; SameSite=Lax';
     setUser(null);
     window.location.href = '/admin/login';
   }, []);

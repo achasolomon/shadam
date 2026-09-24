@@ -1,4 +1,5 @@
 import { Controller, Get, Post, Patch, Delete, Body, Param, UseGuards } from '@nestjs/common';
+import { Throttle } from '@nestjs/throttler';
 import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
 import { SubscribersService } from './subscribers.service';
 import {
@@ -20,6 +21,7 @@ export class SubscribersController {
 
   @Post('newsletter/subscribe')
   @Public()
+  @Throttle({ default: { ttl: 60000, limit: 10 } })
   @ApiOperation({ summary: 'Subscribe to newsletter' })
   subscribe(@Body() dto: SubscribeDto) {
     return this.subscribersService.subscribe(dto.email, 'website');
@@ -27,6 +29,7 @@ export class SubscribersController {
 
   @Post('newsletter/unsubscribe')
   @Public()
+  @Throttle({ default: { ttl: 60000, limit: 10 } })
   @ApiOperation({ summary: 'Unsubscribe from newsletter' })
   unsubscribe(@Body() dto: UnsubscribeDto) {
     return this.subscribersService.unsubscribe(dto.email);
